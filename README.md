@@ -50,6 +50,8 @@ From here, you can configure the deploy to use your origin domain through Netlif
 
 If you see this error, the `REACT_APP_REDIRECT_URL` environment variable may have been configured but not deployed yet. Make sure you trigger a new deploy after the variable has been configured. 
 
+---
+
 ```
 This site can’t be reached
 The webpage at https://site-name.netlify.app/%REACT_APP_REDIRECT_URL% might be temporarily down or it may have moved permanently to a new web address.
