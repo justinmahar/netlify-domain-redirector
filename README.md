@@ -34,6 +34,8 @@ Alternatively, you can clone a copy of this repo and deploy the repo manually:
 
 When setting up your Netlify deploy, add an environment variable called `REACT_APP_REDIRECT_URL`, and set it to the URL you'd like to redirect to.
 
+For example:
+
 ```
 REACT_APP_REDIRECT_URL=https://www.github.com/
 ```
