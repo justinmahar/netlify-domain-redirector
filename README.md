@@ -38,4 +38,12 @@ Once it finishes, your redirect will be active!
 
 `URIError: Failed to decode param '/%REACT_APP_REDIRECT_URL%'`
 
-If you see this error, the `REACT_APP_REDIRECT_URL` environment variable has not been configured. Make sure you trigger a new deploy after the variable has been configured. 
+If you see this error, the `REACT_APP_REDIRECT_URL` environment variable may have been configured but not deployed yet. Make sure you trigger a new deploy after the variable has been configured. 
+
+```
+This site can’t be reached
+The webpage at https://site-name.netlify.app/%REACT_APP_REDIRECT_URL% might be temporarily down or it may have moved permanently to a new web address.
+ERR_HTTP2_PROTOCOL_ERROR
+```
+
+If you see this error, the `REACT_APP_REDIRECT_URL` environment variable may have been configured but not deployed yet. Make sure you trigger a new deploy after the variable has been configured. 
