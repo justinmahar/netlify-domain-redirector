@@ -4,7 +4,8 @@ import redirectImage from "./redirect.webp";
 
 export const Redirector = () => {
   const [pageVisible, setPageVisible] = React.useState(false);
-  const { REACT_APP_REDIRECT_URL } = process.env;
+  const { REACT_APP_REDIRECT_URL, REACT_APP_IGNORE_ROUTE } = process.env;
+  const ignoreRoute = REACT_APP_IGNORE_ROUTE === "true";
 
   /** Redirect to the URL */
   React.useEffect(() => {
@@ -14,13 +15,14 @@ export const Redirector = () => {
         window.location.pathname +
         window.location.search +
         window.location.hash;
-      const fullUrl =
-        (REACT_APP_REDIRECT_URL.endsWith("/")
-          ? REACT_APP_REDIRECT_URL.substring(
-              0,
-              REACT_APP_REDIRECT_URL.length - 1
-            )
-          : REACT_APP_REDIRECT_URL) + route;
+      const fullUrl = !ignoreRoute
+        ? (REACT_APP_REDIRECT_URL.endsWith("/")
+            ? REACT_APP_REDIRECT_URL.substring(
+                0,
+                REACT_APP_REDIRECT_URL.length - 1
+              )
+            : REACT_APP_REDIRECT_URL) + route
+        : REACT_APP_REDIRECT_URL;
       const headElem = document.getElementsByTagName("head")[0];
       if (headElem) {
         const meta = document.createElement("meta");
@@ -32,7 +34,7 @@ export const Redirector = () => {
     } else {
       console.error("No redirect URL has been configured.");
     }
-  }, [REACT_APP_REDIRECT_URL]);
+  }, [REACT_APP_REDIRECT_URL, ignoreRoute]);
 
   React.useEffect(() => {
     const timeout = setTimeout(() => {

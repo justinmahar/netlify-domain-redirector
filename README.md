@@ -40,6 +40,8 @@ For example:
 REACT_APP_REDIRECT_URL=https://www.github.com/
 ```
 
+By default, the route will be preserved. If you'd like to ignore the route and only redirect to your target URL, add the `REACT_APP_IGNORE_ROUTE` environment variable and set it to the string `true`.
+
 ### 3. Verify Redirect Works
 
 Once the deploy finishes, your redirect will be active.
@@ -53,6 +55,13 @@ From here, you can configure the deploy to use your origin domain through Netlif
 - **Be sure to redeploy.** You must redeploy your site after the environment variable has been configured.
 - **Redirects are fast.** There is a 3-second delay before the React app (screenshot above) is rendered. The redirect will likely happen so quickly that you will not see it.
 - **Reuse the same repo.** You can deploy the same repo as many times as you'd like in Netlify, each with different configured redirect URLs. You don't need a new repo for every redirected domain.
+
+## How It Works
+
+The app uses 2 techniques to redirect the user's browser to your target.
+
+1. `meta refresh`: The oldest trick in the book still works. The app uses a `<meta>` refresh tag to redirect the browser. [More info here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#refresh)
+2. `window.open`: The app will use window.open with a target of `_self` immediately after rendering completed. [More info here.](https://developer.mozilla.org/en-US/docs/Web/API/Window/open)
 
 ## Troubleshooting
 
