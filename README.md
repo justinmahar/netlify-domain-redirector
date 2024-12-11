@@ -1,4 +1,4 @@
-[Screenshot](src/redirect.webp)
+![Logo](https://github.com/justinmahar/netlify-redirector/blob/master/public/logo192.png?raw=true)
 
 # Netlify Redirector
 
@@ -8,13 +8,15 @@ It's quick, easy, and painless. Just follow the steps below.
 
 <!-- ![Screenshot](./screenshot.png) -->
 
-## Deploy To Netlify
+## Setup
+
+### 1. Deploy To Netlify
 
 First, click this button to deploy Netlify Redirector:
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/justinmahar/netlify-redirector)
 
-## Set Up Redirect URL
+### 2. Set Up Redirect URL
 
 Next, in Netlify, open your site, then open `Site configuration > Environment variables`.
 
@@ -23,6 +25,8 @@ Then add a single variable called `REACT_APP_REDIRECT_URL`, and set it to the UR
 ```
 REACT_APP_REDIRECT_URL=https://www.github.com/
 ```
+
+### 3. Trigger Deploy
 
 Once the `REACT_APP_REDIRECT_URL` environment variable has been set, open your site in Netlify, open `Deploys`, and click `Trigger deploy` to deploy the site. 
 
