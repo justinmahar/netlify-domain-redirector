@@ -30,7 +30,7 @@ export const Redirector = () => {
         meta.setAttribute("content", `0;url=${fullUrl}`);
         headElem.appendChild(meta);
       }
-      window.open(fullUrl);
+      window.open(fullUrl, "_self");
     } else {
       console.error("No redirect URL has been configured.");
     }
