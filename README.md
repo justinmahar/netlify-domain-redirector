@@ -1,4 +1,6 @@
-<img src="https://github.com/justinmahar/netlify-redirector/blob/master/public/logo192.png?raw=true" width="100" />
+<center>
+  <img src="https://github.com/justinmahar/netlify-redirector/blob/master/public/logo192.png?raw=true" width="100" />
+</center>
 
 # Netlify Redirector
 
