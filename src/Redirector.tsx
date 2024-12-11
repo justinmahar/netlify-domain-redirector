@@ -1,6 +1,6 @@
 import React from "react";
-import redirectImage from "./redirect.webp";
 import "./App.css";
+import redirectImage from "./redirect.webp";
 
 export const Redirector = () => {
   const [pageVisible, setPageVisible] = React.useState(false);
