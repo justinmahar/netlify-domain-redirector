@@ -14,25 +14,31 @@ It's quick, easy, and painless. Just follow the steps below.
 
 ### 1. Deploy To Netlify
 
-First, click this button to deploy Netlify Redirector:
+First, click this button to start a new deploy of Netlify Redirector:
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/justinmahar/netlify-redirector)
 
-### 2. Set Up Redirect URL
+Alternatively, you can clone a copy of this repo and deploy the repo manually:
 
-Next, in Netlify, open your site, then open `Site configuration > Environment variables`.
+<a href="https://github.com/justinmahar/netlify-redirector/generate">
+  <img src="https://img.shields.io/badge/GitHub-Use%20this%20template-brightgreen"/>
+</a>
 
-Then add a single variable called `REACT_APP_REDIRECT_URL`, and set it to the URL you'd like to redirect to.
+### 2. Set Up Netlify Deploy
+
+When setting up your Netlify deploy, add an environment variable called `REACT_APP_REDIRECT_URL`, and set it to the URL you'd like to redirect to.
 
 ```
 REACT_APP_REDIRECT_URL=https://www.github.com/
 ```
 
-### 3. Trigger Deploy
+### 3. Verify Redirect Works
 
-Once the `REACT_APP_REDIRECT_URL` environment variable has been set, open your site in Netlify, open `Deploys`, and click `Trigger deploy` to deploy the site. 
+Once the deploy finishes, your redirect will be active.
 
-Once it finishes, your redirect will be active!
+Visit the Netlify site to confirm the redirect is working as expected.
+
+From here, you can configure the deploy to use your origin domain through Netlify. [Read the instructions here.](https://docs.netlify.com/domains-https/custom-domains/)
 
 ## Troubleshooting
 
