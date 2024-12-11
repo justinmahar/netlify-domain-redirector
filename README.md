@@ -1,4 +1,4 @@
-![Logo](https://github.com/justinmahar/netlify-redirector/blob/master/public/logo192.png?raw=true)
+<img src="https://github.com/justinmahar/netlify-redirector/blob/master/public/logo192.png?raw=true" width="100" />
 
 # Netlify Redirector
 
