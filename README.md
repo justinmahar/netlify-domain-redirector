@@ -30,7 +30,7 @@ Alternatively, you can clone a copy of this repo and deploy the repo manually:
   <img src="https://img.shields.io/badge/GitHub-Use%20this%20template-brightgreen"/>
 </a>
 
-### 2. Set Up Netlify Deploy
+### 2. Set Up Your Redirect
 
 When setting up your Netlify deploy, add an environment variable called `REACT_APP_REDIRECT_URL`, and set it to the URL you'd like to redirect to.
 
