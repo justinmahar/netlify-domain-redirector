@@ -8,6 +8,14 @@ This is a simple React app that redirects any domain to another URL via Netlify.
 
 It's quick, easy, and painless. Just follow the steps below.
 
+## Demo
+
+The following Netlify site will redirect to this project repo on GitHub: 
+
+[netlify-redirector-demo.netlify.app](https://netlify-redirector-demo.netlify.app/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fcf3fe57-4573-4503-8def-b52b97453fb7/deploy-status)](https://app.netlify.com/sites/netlify-redirector-demo/deploys)
+
 ## Setup
 
 ### 1. Deploy To Netlify
