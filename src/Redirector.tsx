@@ -9,7 +9,26 @@ export const Redirector = () => {
   /** Redirect to the URL */
   React.useEffect(() => {
     if (REACT_APP_REDIRECT_URL) {
-      window.open(REACT_APP_REDIRECT_URL);
+      // Preserve the route
+      const route =
+        window.location.pathname +
+        window.location.search +
+        window.location.hash;
+      const fullUrl =
+        (REACT_APP_REDIRECT_URL.endsWith("/")
+          ? REACT_APP_REDIRECT_URL.substring(
+              0,
+              REACT_APP_REDIRECT_URL.length - 1
+            )
+          : REACT_APP_REDIRECT_URL) + route;
+      const headElem = document.getElementsByTagName("head")[0];
+      if (headElem) {
+        const meta = document.createElement("meta");
+        meta.setAttribute("http-equiv", "refresh");
+        meta.setAttribute("content", `0;url=${fullUrl}`);
+        headElem.appendChild(meta);
+      }
+      window.open(fullUrl);
     } else {
       console.error("No redirect URL has been configured.");
     }
@@ -24,7 +43,11 @@ export const Redirector = () => {
   }, []);
 
   if (!pageVisible) {
-    return <></>;
+    return (
+      <div className="App">
+        <header className="App-header"></header>
+      </div>
+    );
   } else {
     return (
       <div className="App">
