@@ -10,7 +10,7 @@ It's quick, easy, and painless. Just follow the steps below.
 
 ## Demo
 
-The following Netlify site will redirect to this project repo on GitHub: 
+The following instance of Netlify Redirector will redirect to this project repo (`https://github.com/justinmahar/netlify-redirector`): 
 
 [netlify-redirector-demo.netlify.app](https://netlify-redirector-demo.netlify.app/)
 
