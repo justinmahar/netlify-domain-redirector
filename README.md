@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/justinmahar/netlify-redirector/blob/master/public/logo192.png?raw=true" width="100" />
+  <img src="./screenshot.png" width="200" />
 </div>
 
 # Netlify Redirector
@@ -7,8 +7,6 @@
 This is a simple React app that redirects any domain to another URL via Netlify.
 
 It's quick, easy, and painless. Just follow the steps below.
-
-<!-- ![Screenshot](./screenshot.png) -->
 
 ## Setup
 
