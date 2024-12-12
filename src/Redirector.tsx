@@ -25,9 +25,9 @@ export const Redirector = () => {
   const darkColor = "#282c34";
   const lightColor = "#ffffff";
   const bgColor =
-    REACT_APP_BG_COLOR ?? darkModeEnabled ? darkColor : lightColor;
+    REACT_APP_BG_COLOR || (darkModeEnabled ? darkColor : lightColor);
   const fgColor =
-    REACT_APP_FG_COLOR ?? darkModeEnabled ? lightColor : darkColor;
+    REACT_APP_FG_COLOR || (darkModeEnabled ? lightColor : darkColor);
 
   const renderDelayParsed = Number.parseInt(`${REACT_APP_RENDER_DELAY}`);
   const renderDelay = !isNaN(renderDelayParsed) ? renderDelayParsed : 3000;
@@ -35,17 +35,17 @@ export const Redirector = () => {
 
   const imgDisabled = REACT_APP_IMG_DISABLED === "true";
 
-  const messageText = REACT_APP_MESSAGE_TEXT ?? "Redirecting...";
+  const messageText = REACT_APP_MESSAGE_TEXT || "Redirecting...";
   const messageDisabled = REACT_APP_MESSAGE_DISABLED === "true";
 
-  const linkText = REACT_APP_LINK_TEXT ?? "Click here to proceed";
+  const linkText = REACT_APP_LINK_TEXT || "Click here to proceed";
   const linkDisabled = REACT_APP_LINK_DISABLED === "true";
 
-  const pageTitle = REACT_APP_PAGE_TITLE ?? "Redirecting...";
+  const pageTitle = REACT_APP_PAGE_TITLE || "Redirecting...";
 
   /** Construct the redirect URL. */
   const redirectUrl = React.useMemo(() => {
-    let url = REACT_APP_REDIRECT_URL ?? "";
+    let url = REACT_APP_REDIRECT_URL || "";
     if (url) {
       // Preserve the path if configured to do so
       const path =

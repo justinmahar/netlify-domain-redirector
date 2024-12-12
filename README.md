@@ -89,6 +89,22 @@ You can set the following environment variables strings to modify the behavior a
 | `REACT_APP_PAGE_TITLE`                     | Optional. Customize the title of the page.                                                                                                                                                                                                                                                  |
 | `REACT_APP_RENDER_DELAY`                   | Optional. By default, the redirect page is not rendered for 3000 milliseconds (3 seconds). You can customize this delay in millis, or set it to 0 for no delay. In most cases, the redirect will occur so quickly that the page will never be shown.                                        |
 
+### How To Preserve Links
+
+Set `REACT_APP_PRESERVE_PATH` to `true` to preserve links to the old domain. 
+
+For example, if your redirect URL is `https://example.com/` and Netlify Redirector is set up at `my-old-domain.com`, then the link `https://my-old-domain.com/profiles/heisenberg` would be redirected to `https://example.com/profiles/heisenberg`.
+
+Without this setting turned on, all links to your old domain would simply redirect to `https://example.com/`.
+
+### Blank Page Only
+
+If you want just a blank page, then set the following environment variables to `true`:
+
+- `REACT_APP_IMG_DISABLED` = `true`
+- `REACT_APP_MESSAGE_DISABLED` = `true`
+- `REACT_APP_LINK_DISABLED` = `true`
+
 ## Troubleshooting
 
 `URIError: Failed to decode param '/%REACT_APP_REDIRECT_URL%'`
