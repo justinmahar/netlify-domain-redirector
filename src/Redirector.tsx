@@ -29,7 +29,6 @@ import "./App.css";
 import redirectImage from "./redirect.webp";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootswatch/dist/zephyr/bootstrap.min.css";
 import copy from "copy-to-clipboard";
 import { useLocalStorage } from "react-storage-complete";
 import { useMomentaryBool } from "react-use-precision-timer";
@@ -166,10 +165,18 @@ export const RedirectorSetup = () => {
             </div>
           </Navbar.Brand>
           <Nav className="ms-auto d-flex align-items-center">
-            <Nav.Link href="https://github.com/justinmahar/netlify-domain-redirector">
+            <Nav.Link
+              href="https://github.com/justinmahar/netlify-domain-redirector"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaGithub className="mb-1" />
             </Nav.Link>
-            <Nav.Link href="https://github.com/justinmahar/netlify-domain-redirector/stargazers">
+            <Nav.Link
+              href="https://github.com/justinmahar/netlify-domain-redirector/stargazers"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Star It &rarr; <FaStar className="mb-1" />
             </Nav.Link>
           </Nav>
