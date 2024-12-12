@@ -107,17 +107,27 @@ export const HelpAccordion = ({ ...props }: HelpAccordionProps) => {
               </Card.Body>
             </Card>
             <Card>
-              <Card.Header>Redirect codes and forced redirects</Card.Header>
+              <Card.Header>
+                Redirect status codes and forced redirects
+              </Card.Header>
               <Card.Body className="d-flex flex-column gap-2">
                 <p className="mb-0">
-                  The two most common HTTP redirect codes are 301 Moved
-                  Permanently, and 302 Found/Moved Temporarily.
+                  The two most common{" "}
+                  <a
+                    href="https://docs.netlify.com/routing/redirects/redirect-options/#http-status-codes"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    HTTP status codes
+                  </a>{" "}
+                  used for redirects are 301 Moved Permanently, and 302
+                  Found/Moved Temporarily.
                 </p>
                 <p className="mb-0">
                   If you use a bang <code className="text-danger">!</code> after
-                  the code, the redirect will be forced, meaning none of the
-                  pages in the Netlify site will be used as a fallback (such as
-                  this setup page at{" "}
+                  the status code, the redirect will be forced, meaning none of
+                  the pages in the Netlify site matching the URL will be used
+                  (such as this setup page at{" "}
                   <code className="text-danger">/index.html</code>).
                 </p>
                 <RedirectCopier redirect={allTrafficRedirect} />
