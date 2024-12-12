@@ -1,6 +1,6 @@
 {
   "name": "netlify-domain-redirector",
-  "version": "2.0.21",
+  "version": "2.0.22",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "Easily redirect domain traffic via Netlify",
   "scripts": {
