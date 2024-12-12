@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  Accordion,
   Alert,
+  Badge,
   Button,
   Card,
   Col,
@@ -21,7 +21,6 @@ import {
   FaGithub,
   FaInfoCircle,
   FaPlus,
-  FaQuestionCircle,
   FaSave,
   FaStar,
   FaTrashAlt,
@@ -30,9 +29,11 @@ import "./App.css";
 import redirectImage from "./redirect.webp";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootswatch/dist/zephyr/bootstrap.min.css";
 import copy from "copy-to-clipboard";
 import { useLocalStorage } from "react-storage-complete";
 import { useMomentaryBool } from "react-use-precision-timer";
+import { HelpAccordion } from "./HelpAccordion";
 
 export const RedirectorSetup = () => {
   const [hideGreeting, setHideGreeting] = useLocalStorage<boolean>(
@@ -45,7 +46,7 @@ export const RedirectorSetup = () => {
   const [imported, toggleImported] = useMomentaryBool(false, 1500);
   const redirectFieldRef = React.useRef<HTMLInputElement | null>(null);
   const redirectsTextAreaRef = React.useRef<HTMLTextAreaElement | null>(null);
-  const [error, setError] = React.useState("");
+  const [importError, setImportError] = React.useState("");
 
   const handleAddRedirect = () => {
     const val = enteredRedirect.trim();
@@ -88,6 +89,7 @@ export const RedirectorSetup = () => {
   };
 
   const handleImport = () => {
+    setImportError("");
     navigator.clipboard
       .readText()
       .then((text) => {
@@ -100,20 +102,20 @@ export const RedirectorSetup = () => {
             setRedirects(newRedirects);
             toggleImported();
           } else {
-            setError(
+            setImportError(
               `The data you provided was not valid. To import redirects, you must copy the REDIRECTS environment variable value from your existing Netlify site.`
             );
           }
         } catch (e) {
           console.error(e);
-          setError(
+          setImportError(
             `The data you provided was not valid. To import redirects, you must copy the REDIRECTS environment variable value from your existing Netlify site. ${e}`
           );
         }
       })
       .catch((e) => {
         console.error(e);
-        setError(`Sorry, there was an error reading the clipboard. ${e}`);
+        setImportError(`Sorry, there was an error reading the clipboard. ${e}`);
       });
   };
 
@@ -121,9 +123,10 @@ export const RedirectorSetup = () => {
     return (
       <ListGroup.Item
         key={`redirect-${i}`}
-        className="d-flex gap-4 justify-content-between align-items-center"
+        className="d-flex gap-4 justify-content-between align-items-center fw-bold"
+        style={{ background: "#FAFAFF" }}
       >
-        <code className="text-danger text-break">{r}</code>
+        <code className="text-primary text-break">{r}</code>
         <div className="d-flex gap-4">
           <div className="d-flex gap-2">
             <FaArrowUp
@@ -145,6 +148,8 @@ export const RedirectorSetup = () => {
       </ListGroup.Item>
     );
   });
+
+  const redirectsCount = (redirects ?? []).length;
 
   return (
     <div className="App pt-5">
@@ -175,7 +180,7 @@ export const RedirectorSetup = () => {
           <Col md={{ offset: 2, span: 8 }}>
             {!hideGreeting && (
               <Alert
-                variant="primary"
+                variant="info"
                 dismissible
                 onClose={() => setHideGreeting(true)}
               >
@@ -193,11 +198,6 @@ export const RedirectorSetup = () => {
                   </a>{" "}
                   so others can find it. :) Enjoy!
                 </p>
-              </Alert>
-            )}
-            {error && (
-              <Alert variant="danger" dismissible onClose={() => setError("")}>
-                <p className="mb-0">{error}</p>
               </Alert>
             )}
           </Col>
@@ -223,7 +223,16 @@ export const RedirectorSetup = () => {
                     <div>
                       <div className="d-flex flex-column gap-2">
                         <Card>
-                          <Card.Header>Your Redirects</Card.Header>
+                          <Card.Header>
+                            Your Redirects{" "}
+                            <Badge
+                              bg={redirectsCount > 0 ? "primary" : "dark"}
+                              pill
+                              className="ms-2"
+                            >
+                              {redirectsCount}
+                            </Badge>
+                          </Card.Header>
                           <Card.Body className="p-0">
                             <ListGroup
                               style={{
@@ -233,7 +242,7 @@ export const RedirectorSetup = () => {
                             >
                               {redirectElements.length === 0 && (
                                 <ListGroup.Item className="fst-italic small">
-                                  Add a redirect below.
+                                  There are no redirects. Add a redirect below.
                                 </ListGroup.Item>
                               )}
                               {redirectElements}
@@ -285,73 +294,7 @@ export const RedirectorSetup = () => {
                         </Form>
                       </div>
                     </div>
-                    <Accordion>
-                      <Accordion.Item eventKey="0">
-                        <Accordion.Header>
-                          <div className="d-flex align-items-center gap-2">
-                            <FaQuestionCircle />
-                            Help &amp; Examples{" "}
-                          </div>
-                        </Accordion.Header>
-                        <Accordion.Body>
-                          <p>
-                            Some common redirects from the{" "}
-                            <a
-                              href="https://docs.netlify.com/routing/redirects/redirect-options/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              documentation
-                            </a>
-                            :
-                          </p>
-                          <hr />
-                          <p>
-                            To redirect all traffic to new domain, use the
-                            following redirect:
-                          </p>
-                          <p>
-                            <code className="text-danger">
-                              {`/* https://example.com/:splat 301!`}
-                            </code>
-                          </p>
-                          <p>
-                            This will force redirect all paths to example.com,
-                            and is a common use case for Netlify Redirector.
-                          </p>
-                          <hr />
-                          <p>
-                            To redirect all traffic to a specific page, use the
-                            following redirect:
-                          </p>
-                          <p>
-                            <code className="text-danger">
-                              {`/* https://example.com/my/page 301!`}
-                            </code>
-                          </p>
-                          <p>
-                            This will force redirect all traffic to the page
-                            https://example.com/my/page.
-                          </p>
-                          <hr />
-                          <p>
-                            An asterisk indicates a splat that will match
-                            anything that follows it. You can use the splat in
-                            your rewrites or redirects like this:
-                          </p>
-                          <p>
-                            <code className="text-danger">
-                              {`/news/* https://example.com/blog/:splat 301!`}
-                            </code>
-                          </p>
-                          <p>
-                            This would force redirect paths like
-                            /news/2004/01/10/my-story to
-                            https://example.com/blog/2004/01/10/my-story.
-                          </p>
-                        </Accordion.Body>
-                      </Accordion.Item>
-                    </Accordion>
+                    <HelpAccordion />
                   </Card.Body>
                 </Card>
               </div>
@@ -361,31 +304,53 @@ export const RedirectorSetup = () => {
                     <FaSave className="mb-1" /> Save Redirects to Netlify
                   </Card.Header>
                   <Card.Body className="d-flex flex-column gap-2">
-                    <Card.Text className="mb-0">
-                      When finished, open the{" "}
-                      <a
-                        href="https://netlify.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Netlify
-                      </a>{" "}
-                      site, open Site configuration{" "}
-                      <FaAngleRight style={{ marginBottom: 2 }} /> Environment
-                      variables, set the environment variable{" "}
-                      <code className="text-danger">REDIRECTS</code> to the
-                      following value, and trigger a deploy:
-                    </Card.Text>
-                    <Form.Control
-                      ref={redirectsTextAreaRef}
-                      as="textarea"
-                      rows={3}
-                      value={JSON.stringify(redirects)}
-                      className="font-monospace"
-                      onFocus={() => redirectsTextAreaRef.current?.select()}
-                    />
+                    <p className="mb-0">
+                      When you are happy with your redirects, follow these steps
+                      to save and activate them in Netlify:
+                    </p>
+                    <ol className="mb-0">
+                      <li>
+                        Open{" "}
+                        <a
+                          href="https://netlify.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Netlify
+                        </a>{" "}
+                        and open your Netlify Redirector site.
+                      </li>
+                      <li>
+                        Open Site configuration{" "}
+                        <FaAngleRight style={{ marginBottom: 2 }} /> Environment
+                        variables.
+                      </li>
+                      <li>
+                        Copy the value below and set the environment variable{" "}
+                        <code className="text-primary">REDIRECTS</code> to this
+                        value.
+                      </li>
+                      <li>Open Deploys and trigger a deploy.</li>
+                    </ol>
+                    <Form.Group controlId="redirects-env-value">
+                      <Form.Label className="fw-bold small">
+                        Your <code className="text-primary">REDIRECTS</code>{" "}
+                        environment variable value:
+                      </Form.Label>
+                      <Form.Control
+                        ref={redirectsTextAreaRef}
+                        as="textarea"
+                        rows={3}
+                        value={JSON.stringify(redirects)}
+                        className="font-monospace"
+                        onFocus={() => redirectsTextAreaRef.current?.select()}
+                      />
+                    </Form.Group>
                     <div className="d-flex gap-1">
-                      <Button variant="primary" onClick={handleCopy}>
+                      <Button
+                        variant={redirectsCount > 0 ? "primary" : "secondary"}
+                        onClick={handleCopy}
+                      >
                         {copied ? (
                           "Copied!"
                         ) : (
@@ -401,11 +366,26 @@ export const RedirectorSetup = () => {
                         {imported ? "Imported!" : "Import From Clipboard"}
                       </Button>
                     </div>
-                    <Card.Text>
-                      After your deploy has finished, your redirects will be
-                      active. You can assign a domain to the site in Netlify
-                      after you confirm the redirects are working as expected.
-                    </Card.Text>
+                    {importError && (
+                      <Alert
+                        variant="danger"
+                        dismissible
+                        className="mb-0"
+                        onClose={() => setImportError("")}
+                      >
+                        <p className="mb-0">{importError}</p>
+                      </Alert>
+                    )}
+                    <Alert variant="info" className="mt-4 mb-0">
+                      <p>
+                        After your deploy has finished, your redirects will be
+                        active.
+                      </p>
+                      <p className="mb-0">
+                        You can then assign a domain to the site in Netlify
+                        after you confirm the redirects are working as expected.
+                      </p>
+                    </Alert>
                   </Card.Body>
                 </Card>
               </div>
