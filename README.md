@@ -1,8 +1,68 @@
 <div align="center">
   <img src="./screenshot.png" width="200" />
 </div>
+<h2 align="center">
+  ↪️ Netlify Redirector
+</h2>
+<h3 align="center">
+  Easily redirect a domain to any URL via Netlify, with link preservation
+</h3>
+<p align="center">
+  <a href="https://app.netlify.com/sites/netlify-redirector-demo/deploys" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/fcf3fe57-4573-4503-8def-b52b97453fb7/deploy-status" alt="Netlify Status" /></a>
+</p>
+<p align="center">
+  <a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
+</p>
 
-# Netlify Redirector
+
+## Overview
+
+Hooks for easily accessing `localStorage` and `sessionStorage`, with a similar interface to `React.useState()`.
+
+### Features include:
+
+- **🔄 Automatic state synchronization**
+  - Changes are synchronized across hooks, and even different browser tabs, automatically.
+- **👨‍👩‍👧‍👦 Namespacing using prefixes**
+  - Easily scope your stored data with namespaces. Great for managing data for multiple users.
+- **🔢 Support for primitives and objects**
+  - Store and retrieve strings, booleans, numbers, and objects effortlessly.
+- **👾 Customizable**
+  - Want to store something unusual? Just provide your own encoder and decoder.
+- **💁 Default values**
+  - Optional support for defaults is baked right in.
+
+<!-- [lock:donate] 🚫--------------------------------------- -->
+
+## Donate 
+
+If this project helped you, please consider buying me a coffee or sponsoring me. Your support is much appreciated!
+
+<a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
+
+<!-- [/lock:donate] ---------------------------------------🚫 -->
+
+## Table of Contents 
+
+- [Overview](#overview)
+  - [Features include:](#features-include)
+- [Donate](#donate)
+- [Table of Contents](#table-of-contents)
+- [Demo](#demo)
+- [Setup](#setup)
+  - [1. Deploy To Netlify](#1-deploy-to-netlify)
+  - [2. Set Up Your Redirect](#2-set-up-your-redirect)
+  - [3. Confirm Redirection Is Active](#3-confirm-redirection-is-active)
+- [Tips](#tips)
+- [How It Works](#how-it-works)
+- [Options](#options)
+  - [How To Preserve Links](#how-to-preserve-links)
+  - [Blank Page Only](#blank-page-only)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [⭐ Found It Helpful? Star It!](#-found-it-helpful-star-it)
+- [License](#license)
+
 
 This is a simple React app that redirects any domain to another URL via Netlify, including preservation of links, should you want.
 
@@ -13,8 +73,6 @@ It's quick, easy, and painless. It's also highly configurable. Just follow the s
 The following instance of Netlify Redirector will redirect to `https://github.com/`, and will preserve paths.
 
 [netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector](https://netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fcf3fe57-4573-4503-8def-b52b97453fb7/deploy-status)](https://app.netlify.com/sites/netlify-redirector-demo/deploys)
 
 If the redirect is successful, you will be sent to the project repo. This deploy uses all default options, with the preserve path setting switched on.
 
@@ -109,6 +167,8 @@ If you want just a blank page, then set the following environment variables to `
 - `REACT_APP_MESSAGE_DISABLED` = `true`
 - `REACT_APP_LINK_DISABLED` = `true`
 
+By default, a page is not shown for 3 seconds anyways. It's there as a fallback in case the redirect fails for some reason.
+
 ## Troubleshooting
 
 `URIError: Failed to decode param '/%REACT_APP_REDIRECT_URL%'`
@@ -124,3 +184,19 @@ ERR_HTTP2_PROTOCOL_ERROR
 ```
 
 If you see this error, the `REACT_APP_REDIRECT_URL` environment variable may have been configured but not deployed yet. Make sure you trigger a new deploy after the variable has been configured. 
+
+## Contributing
+
+Open source software is awesome and so are you. 😎
+
+Feel free to submit a pull request for bugs or additions, and make sure to update tests as appropriate. If you find a mistake in the docs, send a PR! Even the smallest changes help.
+
+For major changes, open an issue first to discuss what you'd like to change.
+
+## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/netlify-redirector/stargazers)
+
+If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/netlify-redirector/stargazers): [👉⭐](https://github.com/justinmahar/netlify-redirector/stargazers)
+
+## License
+
+See [LICENSE.md](https://justinmahar.github.io/netlify-redirector/?path=/docs/license--docs).
