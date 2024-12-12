@@ -31,7 +31,7 @@ It's quick, easy to use, and it's highly configurable. Just follow the steps bel
 - **⚡️ Quick & Easy Setup**
   - Deploy to Netlify with a few clicks, follow the setup page, and you're good to go.
 - **🆓 Free Tier**
-  - Netlify offers a generous [free tier](https://www.netlify.com/pricing/), so this solution is likely free for smaller sites.
+  - Netlify offers a generous [free tier](https://www.netlify.com/pricing/), so this solution is likely free for most sites.
 - **🔗 Link Are Preserved**
   - Easily use splats to ensure all links to your old domain are preserved.
 - **🤖 Great For SEO**
