@@ -30,7 +30,6 @@ fs.writeFile(redirectsFilePath, redirectsContent, (err) => {
     return;
   }
   console.log("Redirects file written successfully to:", redirectsFilePath);
-  console.log("-- Redirects --");
+  console.log("Redirects:");
   console.log(`  ${redirectsContent.split("\n").join("\n  ")}`);
-  console.log("---------------");
 });
