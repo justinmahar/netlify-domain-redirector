@@ -101,21 +101,19 @@ export const RedirectorSetup = () => {
             toggleImported();
           } else {
             setError(
-              `Error: The data you provided was not valid. To import redirects, you must copy the REDIRECTS environment variable value from your existing Netlify site.`
+              `The data you provided was not valid. To import redirects, you must copy the REDIRECTS environment variable value from your existing Netlify site.`
             );
           }
         } catch (e) {
           console.error(e);
           setError(
-            `Error: The data you provided was not valid. To import redirects, you must copy the REDIRECTS environment variable value from your existing Netlify site.`
+            `The data you provided was not valid. To import redirects, you must copy the REDIRECTS environment variable value from your existing Netlify site. ${e}`
           );
         }
       })
       .catch((e) => {
         console.error(e);
-        setError(
-          `Error: To import redirects, you must copy the REDIRECTS environment variable value from your existing Netlify site.`
-        );
+        setError(`Sorry, there was an error reading the clipboard. ${e}`);
       });
   };
 
@@ -182,10 +180,7 @@ export const RedirectorSetup = () => {
                 onClose={() => setHideGreeting(true)}
               >
                 <h3>Welcome to Netlify Redirector!</h3>
-                <p>
-                  Below you can set up the redirects for your Netlify deploy.
-                  Enjoy!
-                </p>
+                <p>Below you can set up the redirects for your Netlify site.</p>
                 <p className="mb-0">
                   {" "}
                   If you find this project helpful, please{" "}
@@ -196,7 +191,7 @@ export const RedirectorSetup = () => {
                   >
                     Star it on GitHub
                   </a>{" "}
-                  so others can find it. :)
+                  so others can find it. :) Enjoy!
                 </p>
               </Alert>
             )}
