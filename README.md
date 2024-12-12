@@ -87,7 +87,7 @@ First, click this button to start a new deploy of Netlify Redirector:
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/justinmahar/netlify-redirector)
 
-Alternatively, you can clone a copy of this repo and deploy the repo manually:
+Alternatively, you can fork the repo and deploy manually:
 
 <a href="https://github.com/justinmahar/netlify-redirector/fork">
   <img src="https://img.shields.io/badge/GitHub-Fork%20this%20repo-brightgreen"/>
