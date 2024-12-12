@@ -8,7 +8,7 @@
   Easily redirect domain traffic via Netlify.
 </h3>
 <p align="center">
-  <a href="https://github.com/justinmahar/netlify-redirector/fork"><img src="https://img.shields.io/badge/GitHub-Fork%20this%20repo-brightgreen"/></a> <a href="https://app.netlify.com/sites/netlify-redirector-demo/deploys" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/fcf3fe57-4573-4503-8def-b52b97453fb7/deploy-status" alt="Netlify Status" /></a>
+  <a href="https://badge.fury.io/js/netlify-domain-redirector" target="_blank" rel="noopener noreferrer"><img src="https://badge.fury.io/js/netlify-domain-redirector.svg" alt="npm Version" /></a> <a href="https://github.com/justinmahar/netlify-redirector/fork"><img src="https://img.shields.io/badge/GitHub-Fork%20this%20repo-brightgreen"/></a> <a href="https://app.netlify.com/sites/netlify-redirector-demo/deploys" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/fcf3fe57-4573-4503-8def-b52b97453fb7/deploy-status" alt="Netlify Status" /></a>
 </p>
 <p align="center">
   <a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
