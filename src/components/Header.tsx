@@ -21,8 +21,8 @@ export const Header = ({ ...props }: HeaderProps) => {
               alt="Arrow pointing to the right"
               style={{ height: 30 }}
             />
-            <span className="d-md-none">NDR</span>
-            <span className="d-none d-md-inline">
+            <span className="d-sm-none">NDR</span>
+            <span className="d-none d-sm-inline">
               Netlify Domain Redirector
             </span>
           </div>

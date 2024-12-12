@@ -24,6 +24,7 @@ import {
 import "../App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootswatch/dist/zephyr/bootstrap.min.css";
 import copy from "copy-to-clipboard";
 import { useLocalStorage } from "react-storage-complete";
 import { useMomentaryBool } from "react-use-precision-timer";

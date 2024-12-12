@@ -123,7 +123,7 @@ export const HelpAccordion = ({ ...props }: HelpAccordionProps) => {
                 <RedirectCopier redirect={allTrafficRedirect} />
                 <Alert variant="warning" className="mb-0">
                   <p className="d-flex gap-2 mb-0 fw-bold">
-                    <div className="mt-0 me-1">
+                    <div className="mt-0 me-1 d-none d-sm-block">
                       <FaExclamationTriangle className="fs-5" />
                     </div>
                     You will most likely want to force your redirects so that
