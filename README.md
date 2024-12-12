@@ -75,7 +75,7 @@ If, after 3 seconds, neither of these work, a simple page is displayed with a li
 
 ## Options
 
-You can set the following environment variables strings to modify the behavior and appearance of this application.
+You can set the following environment variables to modify the behavior and appearance of this application.
 
 | Environment Variable                       | Description                                                                                                                                                                                                                                                                                 |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
