@@ -30,7 +30,7 @@ It's quick, easy to use, and it's highly configurable. Just follow the steps bel
 
 - **⚡️ Quick & Easy Setup**
   - Deploy to Netlify with a few clicks, follow the setup page, and you're good to go.
-- **🆓 Free Tier**
+- **🆓 Free**
   - Netlify offers generous [free tier](https://www.netlify.com/pricing/) bandwidth, so this solution is likely free for most sites.
 - **🔗 Link Are Preserved**
   - Easily use splats to ensure all links to your old domain are preserved.
@@ -60,9 +60,10 @@ If this project helped you, please consider buying me a coffee or sponsoring me.
   - [3. Save Redirects In Netlify](#3-save-redirects-in-netlify)
   - [4. Add Domain To Site](#4-add-domain-to-site)
 - [How It Works](#how-it-works)
+- [Limitations \& Cost Estimate](#limitations--cost-estimate)
 - [Contributing](#contributing)
-- [⭐ Found It Helpful? Star It!](#-found-it-helpful-star-it)
 - [Disclaimer](#disclaimer)
+- [⭐ Found It Helpful? Star It!](#-found-it-helpful-star-it)
 - [License](#license)
 
 ## Demo
@@ -147,6 +148,21 @@ The React app is not meant for the public, it's just there for setup purposes, s
 
 If no `REDIRECTS` environment variable is set for your site, a default `_redirects` file is used, which redirects all traffic to `/index.html` using the redirect `/* /index.html 200`. This causes the setup page to be shown when no redirects have been configured.
 
+## Limitations & Cost Estimate
+
+Netlify's [free tier](https://www.netlify.com/pricing/) covers 100GB of bandwidth, which accounts for a significant amount of redirect traffic.
+
+A redirect response contains a small header and a location URL. If, on average, a redirect response consumes roughly 500 bytes of bandwidth, then:
+
+```
+100GB = 100 * 1024^3 bytes = 107,374,182,400 bytes
+107,374,182,400 bytes / 500 bytes per redirect = 214,748,364 redirects
+```
+
+On the free tier, you can expect a maximum of around **214 million redirects**.
+
+Therefore, this solution is most likely free for most situations!
+
 ## Contributing
 
 Open source software is awesome and so are you. 😎
@@ -155,13 +171,15 @@ Feel free to submit a pull request for bugs or additions, and make sure to updat
 
 For major changes, open an issue first to discuss what you'd like to change.
 
-## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/netlify-domain-redirector/stargazers)
-
-If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/netlify-domain-redirector/stargazers): [👉⭐](https://github.com/justinmahar/netlify-domain-redirector/stargazers)
-
 ## Disclaimer
 
 This project is not affiliated with [Netlify, Inc](https://netlify.com/) in any way. It is an unofficial solution made for/by the development community.
+
+Be sure to read the project license for additional terms and conditions.
+
+## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/netlify-domain-redirector/stargazers)
+
+If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/netlify-domain-redirector/stargazers): [👉⭐](https://github.com/justinmahar/netlify-domain-redirector/stargazers)
 
 ## License
 
