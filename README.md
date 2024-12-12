@@ -4,9 +4,9 @@
 
 # Netlify Redirector
 
-This is a simple React app that redirects any domain to another URL via Netlify.
+This is a simple React app that redirects any domain to another URL via Netlify, including preservation of links, should you want.
 
-It's quick, easy, and painless. Just follow the steps below.
+It's quick, easy, and painless. It's also highly configurable. Just follow the steps below.
 
 ## Demo
 
@@ -40,7 +40,9 @@ For example:
 REACT_APP_REDIRECT_URL=https://www.github.com/
 ```
 
-See additional options you can configure [below](#options).
+If you'd like to preserve paths so that links to the old domain still work with the new one, set `REACT_APP_PRESERVE_PATH` to `true`.
+
+See the additional options you can configure [below](#options). 
 
 ### 3. Verify Redirect Works
 
@@ -48,40 +50,42 @@ Once the deploy finishes, your redirect will be active.
 
 Visit the Netlify site to confirm the redirect is working as expected.
 
-From here, you can configure the deploy to use your origin domain through Netlify. [Read the instructions here.](https://docs.netlify.com/domains-https/custom-domains/)
+From here, you can configure the deploy to use your origin domain through Netlify. [Read the instructions on how to set that up here.](https://docs.netlify.com/domains-https/custom-domains/)
 
 ## Tips
 
 - **Be sure to redeploy.** You must redeploy your site after the environment variable has been configured.
 - **Redirects are fast.** There is a 3-second delay before the React app (screenshot above) is rendered. The redirect will likely happen so quickly that you will not see it.
-- **Reuse the same repo.** You can deploy the same repo as many times as you'd like in Netlify, each with different configured redirect URLs. You don't need a new repo for every redirected domain.
+- **You can reuse the same repo.** You can deploy the same repo as many times as you'd like in Netlify, each with different configured redirect URLs. You don't need a new repo for every redirected domain.
+- **You can preserve links if you want.** Set `REACT_APP_PRESERVE_PATH` to `true` if you want links to the old domain to still work.
+- **More options below!** Change the colors, text, render delay, and more. See below for all the config options.
 
 ## How It Works
 
 The app uses 2 techniques to redirect the user's browser to your target.
 
 1. `meta refresh`: The oldest trick in the book still works. The app uses a `<meta>` refresh tag to redirect the browser. [More info here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#refresh)
-2. `window.open`: The app will use window.open with a target of `_self` immediately after rendering completed. [More info here.](https://developer.mozilla.org/en-US/docs/Web/API/Window/open)
+2. `window.open`: The app will use window.open with a target of `_self` immediately after rendering has completed. [More info here.](https://developer.mozilla.org/en-US/docs/Web/API/Window/open)
 
 ## Options
 
 You can set the following environment variables strings to modify the behavior and appearance of this application.
 
-| Environment Variable                       | Description                                                                                                                                                                                                                                          |
-| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `REACT_APP_REDIRECT_URL`                   | **Required.** The URL to redirect to.                                                                                                                                                                                                                |
-| `REACT_APP_PRESERVE_PATH`                  | Optional. By default, the path is not preserved. Set to `true` to preserve the path, which will be appended to the end of your configured URL. Just make sure your URL points to the root path.                                                      |
-| `REACT_APP_AUTOMATIC_REDIRECTION_DISABLED` | Optional. By default, redirection occurs automatically. Set to `true` to disable this behavior.                                                                                                                                                      |
-| `REACT_APP_DARK_MODE_ENABLED`              | Optional. When `true`, the redirect page will appear in dark mode.                                                                                                                                                                                   |
-| `REACT_APP_BG_COLOR`                       | Optional. Specify the background color of the redirect page.                                                                                                                                                                                         |
-| `REACT_APP_FG_COLOR`                       | Optional. Specify the foreground text color of the redirect page.                                                                                                                                                                                    |
-| `REACT_APP_IMG_DISABLED`                   | Optional. When `true`, the image will not be shown on the redirect page, for a simpler look.                                                                                                                                                         |
-| `REACT_APP_MESSAGE_TEXT`                   | Optional. Customize the message shown. Default is "Redirecting..."                                                                                                                                                                                   |
-| `REACT_APP_MESSAGE_DISABLED`               | Optional. When `true`, the message will not be shown on the redirect page.                                                                                                                                                                           |
-| `REACT_APP_LINK_TEXT`                      | Optional. Customize the link text. Default is "Click here to proceed"                                                                                                                                                                                |
-| `REACT_APP_LINK_DISABLED`                  | Optional. When `true`, the redirect link will not be shown. Not recommended.                                                                                                                                                                         |
-| `REACT_APP_PAGE_TITLE`                     | Optional. Customize the title of the page.                                                                                                                                                                                                           |
-| `REACT_APP_RENDER_DELAY`                   | Optional. By default, the redirect page is not rendered for 3000 milliseconds (3 seconds). You can customize this delay in millis, or set it to 0 for no delay. In most cases, the redirect will occur so quickly that the page will never be shown. |
+| Environment Variable                       | Description                                                                                                                                                                                                                                                                                 |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `REACT_APP_REDIRECT_URL`                   | **Required.** The URL to redirect to.                                                                                                                                                                                                                                                       |
+| `REACT_APP_PRESERVE_PATH`                  | Optional. By default, the path is not preserved, so links to content on the old domain won't redirect properly. Set to `true` to preserve the path, which will be appended to the end of your configured URL, and will preserve the links. Just make sure your URL points to the root path. |
+| `REACT_APP_AUTOMATIC_REDIRECTION_DISABLED` | Optional. By default, redirection occurs automatically. Set to `true` to disable this behavior.                                                                                                                                                                                             |
+| `REACT_APP_DARK_MODE_ENABLED`              | Optional. When `true`, the redirect page will appear in dark mode.                                                                                                                                                                                                                          |
+| `REACT_APP_BG_COLOR`                       | Optional. Specify the background color of the redirect page.                                                                                                                                                                                                                                |
+| `REACT_APP_FG_COLOR`                       | Optional. Specify the foreground text color of the redirect page.                                                                                                                                                                                                                           |
+| `REACT_APP_IMG_DISABLED`                   | Optional. When `true`, the image will not be shown on the redirect page, for a simpler look.                                                                                                                                                                                                |
+| `REACT_APP_MESSAGE_TEXT`                   | Optional. Customize the message shown. Default is "Redirecting..."                                                                                                                                                                                                                          |
+| `REACT_APP_MESSAGE_DISABLED`               | Optional. When `true`, the message will not be shown on the redirect page.                                                                                                                                                                                                                  |
+| `REACT_APP_LINK_TEXT`                      | Optional. Customize the link text. Default is "Click here to proceed"                                                                                                                                                                                                                       |
+| `REACT_APP_LINK_DISABLED`                  | Optional. When `true`, the redirect link will not be shown. Not recommended.                                                                                                                                                                                                                |
+| `REACT_APP_PAGE_TITLE`                     | Optional. Customize the title of the page.                                                                                                                                                                                                                                                  |
+| `REACT_APP_RENDER_DELAY`                   | Optional. By default, the redirect page is not rendered for 3000 milliseconds (3 seconds). You can customize this delay in millis, or set it to 0 for no delay. In most cases, the redirect will occur so quickly that the page will never be shown.                                        |
 
 ## Troubleshooting
 
