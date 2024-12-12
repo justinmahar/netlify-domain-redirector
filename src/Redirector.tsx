@@ -35,7 +35,10 @@ import { useLocalStorage } from "react-storage-complete";
 import { useMomentaryBool } from "react-use-precision-timer";
 
 export const RedirectorSetup = () => {
-  const [hideGreeting, setHideGreeting] = React.useState(false);
+  const [hideGreeting, setHideGreeting] = useLocalStorage<boolean>(
+    "hideGreeting",
+    false
+  );
   const [redirects, setRedirects] = useLocalStorage<string[]>("redirects", []);
   const [enteredRedirect, setEnteredRedirect] = React.useState("");
   const [copied, toggleCopied] = useMomentaryBool(false, 1500);
@@ -178,9 +181,10 @@ export const RedirectorSetup = () => {
                 dismissible
                 onClose={() => setHideGreeting(true)}
               >
+                <h3>Welcome to Netlify Redirector!</h3>
                 <p>
-                  Welcome to Netlify Redirector! Below you can set up the
-                  redirects for your Netlify deploy. Enjoy!
+                  Below you can set up the redirects for your Netlify deploy.
+                  Enjoy!
                 </p>
                 <p className="mb-0">
                   {" "}
