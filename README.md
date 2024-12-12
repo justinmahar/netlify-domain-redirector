@@ -114,7 +114,7 @@ Copy the value from the setup page and save as the environment variable `REDIREC
 
 Then trigger a deploy.
 
-Your redirects are now active!
+Your redirects are now active! Confirm the redirects are working as expected.
 
 ### 4. Add Domain To Site
 
