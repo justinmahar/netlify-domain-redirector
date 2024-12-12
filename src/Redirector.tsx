@@ -18,11 +18,9 @@ import {
   FaArrowUp,
   FaAsterisk,
   FaCopy,
-  FaGithub,
   FaInfoCircle,
   FaPlus,
   FaSave,
-  FaStar,
   FaTrashAlt,
 } from "react-icons/fa";
 import "./App.css";
