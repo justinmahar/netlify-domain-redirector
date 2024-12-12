@@ -17,30 +17,24 @@
 
 ## Overview
 
-Hooks for easily accessing `localStorage` and `sessionStorage`, with a similar interface to `React.useState()`.
+This is a simple React app that redirects any domain to another URL via Netlify, including preservation of links, if you want.
+
+It's quick, easy, and painless. It's also highly configurable. Just follow the steps below.
 
 ### Features include:
 
-- **🔄 Automatic state synchronization**
-  - Changes are synchronized across hooks, and even different browser tabs, automatically.
-- **👨‍👩‍👧‍👦 Namespacing using prefixes**
-  - Easily scope your stored data with namespaces. Great for managing data for multiple users.
-- **🔢 Support for primitives and objects**
-  - Store and retrieve strings, booleans, numbers, and objects effortlessly.
-- **👾 Customizable**
-  - Want to store something unusual? Just provide your own encoder and decoder.
-- **💁 Default values**
-  - Optional support for defaults is baked right in.
-
-<!-- [lock:donate] 🚫--------------------------------------- -->
+- **⚡️ Quick & Easy Setup**
+  - Deploy to Netlify with a few clicks, paste your redirect URL, and you're good to go!
+- **🔗 Preserves Links**
+  - Preserve links with a simple environment config option.
+- **👨‍💻 No Coding Needed**
+  - Just configure, deploy, and... profit?
 
 ## Donate 
 
 If this project helped you, please consider buying me a coffee or sponsoring me. Your support is much appreciated!
 
 <a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
-
-<!-- [/lock:donate] ---------------------------------------🚫 -->
 
 ## Table of Contents 
 
@@ -62,11 +56,6 @@ If this project helped you, please consider buying me a coffee or sponsoring me.
 - [Contributing](#contributing)
 - [⭐ Found It Helpful? Star It!](#-found-it-helpful-star-it)
 - [License](#license)
-
-
-This is a simple React app that redirects any domain to another URL via Netlify, including preservation of links, should you want.
-
-It's quick, easy, and painless. It's also highly configurable. Just follow the steps below.
 
 ## Demo
 
@@ -128,8 +117,9 @@ The app uses 2 techniques to redirect the user's browser to your target.
 
 1. `meta refresh`: The oldest trick in the book still works. The app uses a `<meta>` refresh tag to redirect the browser. [More info here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#refresh)
 2. `window.open`: The app will use window.open with a target of `_self` immediately after rendering has completed. [More info here.](https://developer.mozilla.org/en-US/docs/Web/API/Window/open)
+3. Coming soon - Server-side Netlify Redirect
 
-If, after 3 seconds, neither of these work, a simple page is displayed with a link to redirect. In most cases, this page will never be seen.
+If, after 3 seconds, none of these work, a simple page is displayed with a link to redirect. In most cases, this page will never be seen.
 
 ## Options
 
