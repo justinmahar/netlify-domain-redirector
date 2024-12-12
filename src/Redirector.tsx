@@ -5,7 +5,7 @@ import redirectImage from "./redirect.webp";
 export const Redirector = () => {
   const {
     REACT_APP_REDIRECT_URL,
-    REACT_APP_IGNORE_ROUTE,
+    REACT_APP_PRESERVE_PATH,
     REACT_APP_AUTOMATIC_REDIRECTION_DISABLED,
     REACT_APP_DARK_MODE_ENABLED,
     REACT_APP_BG_COLOR,
@@ -18,7 +18,7 @@ export const Redirector = () => {
     REACT_APP_PAGE_TITLE,
     REACT_APP_RENDER_DELAY,
   } = process.env;
-  const ignoreRoute = REACT_APP_IGNORE_ROUTE === "true";
+  const preservePath = REACT_APP_PRESERVE_PATH === "true";
   const redirectEnabled = REACT_APP_AUTOMATIC_REDIRECTION_DISABLED !== "true";
 
   const darkModeEnabled = REACT_APP_DARK_MODE_ENABLED === "true";
@@ -47,17 +47,17 @@ export const Redirector = () => {
   const redirectUrl = React.useMemo(() => {
     let url = REACT_APP_REDIRECT_URL ?? "";
     if (url) {
-      // Preserve the route
-      const route =
+      // Preserve the path if configured to do so
+      const path =
         window.location.pathname +
         window.location.search +
         window.location.hash;
-      url = !ignoreRoute
-        ? (url.endsWith("/") ? url.substring(0, url.length - 1) : url) + route
+      url = preservePath
+        ? (url.endsWith("/") ? url.substring(0, url.length - 1) : url) + path
         : url;
     }
     return url;
-  }, [REACT_APP_REDIRECT_URL, ignoreRoute]);
+  }, [REACT_APP_REDIRECT_URL, preservePath]);
 
   /** Redirect to the URL */
   React.useEffect(() => {

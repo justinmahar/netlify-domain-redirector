@@ -40,7 +40,7 @@ For example:
 REACT_APP_REDIRECT_URL=https://www.github.com/
 ```
 
-By default, the route will be preserved. If you'd like to ignore the route and only redirect to your target URL, add the `REACT_APP_IGNORE_ROUTE` environment variable and set it to the string `true`.
+See additional options you can configure [below](#options).
 
 ### 3. Verify Redirect Works
 
@@ -70,7 +70,7 @@ You can set the following environment variables strings to modify the behavior a
 | Environment Variable                       | Description                                                                                                                                                                                                                                          |
 | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `REACT_APP_REDIRECT_URL`                   | **Required.** The URL to redirect to.                                                                                                                                                                                                                |
-| `REACT_APP_IGNORE_ROUTE`                   | Optional. By default, the route is preserved. Set to `true` to ignore the route and redirect to the URL only.                                                                                                                                        |
+| `REACT_APP_PRESERVE_PATH`                  | Optional. By default, the path is not preserved. Set to `true` to preserve the path, which will be appended to the end of your configured URL. Just make sure your URL points to the root path.                                                      |
 | `REACT_APP_AUTOMATIC_REDIRECTION_DISABLED` | Optional. By default, redirection occurs automatically. Set to `true` to disable this behavior.                                                                                                                                                      |
 | `REACT_APP_DARK_MODE_ENABLED`              | Optional. When `true`, the redirect page will appear in dark mode.                                                                                                                                                                                   |
 | `REACT_APP_BG_COLOR`                       | Optional. Specify the background color of the redirect page.                                                                                                                                                                                         |
