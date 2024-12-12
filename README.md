@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./screenshot.png" width="200" />
+  <img src="./public/logo512.png" width="100" />
 </div>
 <h2 align="center">
   ↪️ Netlify Redirector
