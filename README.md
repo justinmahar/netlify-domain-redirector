@@ -18,6 +18,8 @@ The following instance of Netlify Redirector will redirect to `https://github.co
 
 If the redirect is successful, you will be sent to the project repo. This deploy uses all default options, with the preserve path setting switched on.
 
+Feel free to try `netlify-redirector-demo.netlify.app/` with any path after the `/` to demonstrate path preservation.
+
 ## Setup
 
 ### 1. Deploy To Netlify
