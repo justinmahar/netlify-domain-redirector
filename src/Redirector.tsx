@@ -36,9 +36,7 @@ import { useMomentaryBool } from "react-use-precision-timer";
 
 export const RedirectorSetup = () => {
   const [hideGreeting, setHideGreeting] = React.useState(false);
-  const [redirects, setRedirects] = useLocalStorage<string[]>("redirects", [
-    "/netlify-redirector /index.html 200",
-  ]);
+  const [redirects, setRedirects] = useLocalStorage<string[]>("redirects", []);
   const [enteredRedirect, setEnteredRedirect] = React.useState("");
   const [copied, toggleCopied] = useMomentaryBool(false, 1500);
   const [imported, toggleImported] = useMomentaryBool(false, 1500);
@@ -186,7 +184,7 @@ export const RedirectorSetup = () => {
                 </p>
                 <p className="mb-0">
                   {" "}
-                  If this project helps you, please{" "}
+                  If you find this project helpful, please{" "}
                   <a
                     href="https://github.com/justinmahar/netlify-redirector/stargazers"
                     target="_blank"
@@ -293,7 +291,7 @@ export const RedirectorSetup = () => {
                         <Accordion.Header>
                           <div className="d-flex align-items-center gap-2">
                             <FaQuestionCircle />
-                            Help & Examples{" "}
+                            Help &amp; Examples{" "}
                           </div>
                         </Accordion.Header>
                         <Accordion.Body>
@@ -352,23 +350,6 @@ export const RedirectorSetup = () => {
                             /news/2004/01/10/my-story to
                             https://example.com/blog/2004/01/10/my-story.
                           </p>
-                          <hr />
-                          <p>
-                            If you'd like to still be able to view this setup
-                            page, add this as your first redirect:
-                          </p>
-                          <p>
-                            <code className="text-danger">
-                              {`/netlify-redirector /index.html 200`}
-                            </code>
-                          </p>
-                          <p>
-                            Netlify Director setup will then be available at the
-                            path{" "}
-                            <code className="text-danger">
-                              {`/netlify-redirector`}
-                            </code>
-                          </p>
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
@@ -423,7 +404,8 @@ export const RedirectorSetup = () => {
                     </div>
                     <Card.Text>
                       After your deploy has finished, your redirects will be
-                      active.
+                      active. You can assign a domain to the site in Netlify
+                      after you confirm the redirects are working as expected.
                     </Card.Text>
                   </Card.Body>
                 </Card>
