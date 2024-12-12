@@ -74,11 +74,11 @@ The following instance of Netlify Domain Redirector will redirect all traffic to
 
 Click the link below to see redirects in action:
 
-[https://netlify-domain-redirector-demo.netlify.app/justinmahar/netlify-domain-redirector](https://netlify-domain-redirector-demo.netlify.app/justinmahar/netlify-domain-redirector)
+[https://netlify-domain-redirector-demo.netlify.app/justinmahar](https://netlify-domain-redirector-demo.netlify.app/justinmahar)
 
-When clicking this link, the path is preserved and you will be redirected to the same path on GitHub, which is to the Netlify Domain Redirector project repo.
+When clicking this link, the path `/justinmahar` is preserved and you will be redirected to the same path on GitHub.
 
-Try changing the path to your own GitHub path if you'd like to try it out.
+Try changing the path to your own GitHub username if you'd like to try it out.
 
 > Note: The redirect being used by this deploy is: `/* https://github.com/:splat 301!`
 
@@ -173,7 +173,7 @@ For major changes, open an issue first to discuss what you'd like to change.
 
 ## Disclaimer
 
-This project is not affiliated with [Netlify, Inc](https://netlify.com/) in any way. It is an unofficial solution made for/by the development community.
+This project is not affiliated with [Netlify](https://netlify.com/) in any way. It is an unofficial solution made for/by the development community.
 
 Be sure to read the project license for additional terms and conditions.
 
