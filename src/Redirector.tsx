@@ -315,12 +315,12 @@ export const RedirectorSetup = () => {
                           </p>
                           <p>
                             <code className="text-danger">
-                              {`/* https://example.com/:splat`}
+                              {`/* https://example.com/:splat 301!`}
                             </code>
                           </p>
                           <p>
-                            This will redirect all paths to example.com, and is
-                            a common use case for Netlify Redirector.
+                            This will force redirect all paths to example.com,
+                            and is a common use case for Netlify Redirector.
                           </p>
                           <hr />
                           <p>
@@ -329,11 +329,11 @@ export const RedirectorSetup = () => {
                           </p>
                           <p>
                             <code className="text-danger">
-                              {`/* https://example.com/my/page`}
+                              {`/* https://example.com/my/page 301!`}
                             </code>
                           </p>
                           <p>
-                            This will redirect all traffic to the page
+                            This will force redirect all traffic to the page
                             https://example.com/my/page.
                           </p>
                           <hr />
@@ -344,11 +344,11 @@ export const RedirectorSetup = () => {
                           </p>
                           <p>
                             <code className="text-danger">
-                              {`/news/* https://example.com/blog/:splat`}
+                              {`/news/* https://example.com/blog/:splat 301!`}
                             </code>
                           </p>
                           <p>
-                            This would redirect paths like
+                            This would force redirect paths like
                             /news/2004/01/10/my-story to
                             https://example.com/blog/2004/01/10/my-story.
                           </p>
