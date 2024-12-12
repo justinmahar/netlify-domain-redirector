@@ -1,130 +1,420 @@
 import React from "react";
+import {
+  Accordion,
+  Alert,
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  ListGroup,
+  Nav,
+  Navbar,
+  Row,
+} from "react-bootstrap";
+import {
+  FaAngleRight,
+  FaArrowDown,
+  FaArrowUp,
+  FaAsterisk,
+  FaCopy,
+  FaGithub,
+  FaInfoCircle,
+  FaPlus,
+  FaQuestionCircle,
+  FaSave,
+  FaStar,
+  FaTrashAlt,
+} from "react-icons/fa";
 import "./App.css";
 import redirectImage from "./redirect.webp";
 
-export const Redirector = () => {
-  const {
-    REACT_APP_REDIRECT_URL,
-    REACT_APP_PRESERVE_PATH,
-    REACT_APP_AUTOMATIC_REDIRECTION_DISABLED,
-    REACT_APP_DARK_MODE_ENABLED,
-    REACT_APP_BG_COLOR,
-    REACT_APP_FG_COLOR,
-    REACT_APP_IMG_DISABLED,
-    REACT_APP_MESSAGE_TEXT,
-    REACT_APP_MESSAGE_DISABLED,
-    REACT_APP_LINK_TEXT,
-    REACT_APP_LINK_DISABLED,
-    REACT_APP_PAGE_TITLE,
-    REACT_APP_RENDER_DELAY,
-  } = process.env;
-  const preservePath = REACT_APP_PRESERVE_PATH === "true";
-  const redirectEnabled = REACT_APP_AUTOMATIC_REDIRECTION_DISABLED !== "true";
+import "bootstrap/dist/css/bootstrap.min.css";
+import copy from "copy-to-clipboard";
+import { useLocalStorage } from "react-storage-complete";
+import { useMomentaryBool } from "react-use-precision-timer";
 
-  const darkModeEnabled = REACT_APP_DARK_MODE_ENABLED === "true";
-  const darkColor = "#282c34";
-  const lightColor = "#ffffff";
-  const bgColor =
-    REACT_APP_BG_COLOR || (darkModeEnabled ? darkColor : lightColor);
-  const fgColor =
-    REACT_APP_FG_COLOR || (darkModeEnabled ? lightColor : darkColor);
+export const RedirectorSetup = () => {
+  const [hideGreeting, setHideGreeting] = React.useState(false);
+  const [redirects, setRedirects] = useLocalStorage<string[]>("redirects", [
+    "/netlify-redirector /index.html 200",
+  ]);
+  const [enteredRedirect, setEnteredRedirect] = React.useState("");
+  const [copied, toggleCopied] = useMomentaryBool(false, 1500);
+  const [imported, toggleImported] = useMomentaryBool(false, 1500);
+  const redirectFieldRef = React.useRef<HTMLInputElement | null>(null);
+  const redirectsTextAreaRef = React.useRef<HTMLTextAreaElement | null>(null);
+  const [error, setError] = React.useState("");
 
-  const renderDelayParsed = Number.parseInt(`${REACT_APP_RENDER_DELAY}`);
-  const renderDelay = !isNaN(renderDelayParsed) ? renderDelayParsed : 3000;
-  const [pageVisible, setPageVisible] = React.useState(renderDelay === 0);
-
-  const imgDisabled = REACT_APP_IMG_DISABLED === "true";
-
-  const messageText = REACT_APP_MESSAGE_TEXT || "Redirecting...";
-  const messageDisabled = REACT_APP_MESSAGE_DISABLED === "true";
-
-  const linkText = REACT_APP_LINK_TEXT || "Click here to proceed";
-  const linkDisabled = REACT_APP_LINK_DISABLED === "true";
-
-  const pageTitle = REACT_APP_PAGE_TITLE || "Redirecting...";
-
-  /** Construct the redirect URL. */
-  const redirectUrl = React.useMemo(() => {
-    let url = REACT_APP_REDIRECT_URL || "";
-    if (url) {
-      // Preserve the path if configured to do so
-      const path =
-        window.location.pathname +
-        window.location.search +
-        window.location.hash;
-      url = preservePath
-        ? (url.endsWith("/") ? url.substring(0, url.length - 1) : url) + path
-        : url;
+  const handleAddRedirect = () => {
+    const val = enteredRedirect.trim();
+    if (val) {
+      const newRedirects = [...(redirects ?? []), enteredRedirect.trim()];
+      setRedirects(newRedirects);
+      setEnteredRedirect("");
     }
-    return url;
-  }, [REACT_APP_REDIRECT_URL, preservePath]);
+  };
 
-  /** Redirect to the URL */
-  React.useEffect(() => {
-    if (redirectUrl) {
-      const headElem = document.getElementsByTagName("head")[0];
-      if (headElem) {
-        const meta = document.createElement("meta");
-        meta.setAttribute("http-equiv", "refresh");
-        meta.setAttribute("content", `0;url=${redirectUrl}`);
-        if (redirectEnabled) {
-          // Technique #1 - meta refresh tag
-          headElem.appendChild(meta);
+  const handleDeleteRedirect = (index: number) => {
+    if (index >= 0 && index < (redirects ?? []).length) {
+      const newRedirects = [...(redirects ?? [])];
+      newRedirects.splice(index, 1);
+      setRedirects(newRedirects);
+    }
+  };
+
+  const handleMoveUp = (index: number) => {
+    if (index > 0 && index < (redirects ?? []).length) {
+      const newRedirects = [...(redirects ?? [])];
+      const removed = newRedirects.splice(index, 1);
+      newRedirects.splice(index - 1, 0, ...removed);
+      setRedirects(newRedirects);
+    }
+  };
+
+  const handleMoveDown = (index: number) => {
+    if (index >= 0 && index < (redirects ?? []).length - 1) {
+      const newRedirects = [...(redirects ?? [])];
+      const removed = newRedirects.splice(index, 1);
+      newRedirects.splice(index + 1, 0, ...removed);
+      setRedirects(newRedirects);
+    }
+  };
+
+  const handleCopy = () => {
+    copy(JSON.stringify(redirects));
+    toggleCopied();
+  };
+
+  const handleImport = () => {
+    navigator.clipboard
+      .readText()
+      .then((text) => {
+        try {
+          const importedRedirects = JSON.parse(text);
+          if (Array.isArray(importedRedirects)) {
+            const newRedirects = importedRedirects.filter(
+              (v) => typeof v === "string"
+            );
+            setRedirects(newRedirects);
+            toggleImported();
+          } else {
+            setError(
+              `Error: The data you provided was not valid. To import redirects, you must copy the REDIRECTS environment variable value from your existing Netlify site.`
+            );
+          }
+        } catch (e) {
+          console.error(e);
+          setError(
+            `Error: The data you provided was not valid. To import redirects, you must copy the REDIRECTS environment variable value from your existing Netlify site.`
+          );
         }
-        document.title = pageTitle;
-      }
-      if (redirectEnabled) {
-        // Technique #2 - window.open with _self target
-        window.open(redirectUrl, "_self");
-      }
-    } else {
-      console.error("No redirect URL has been configured.");
-    }
-  }, [pageTitle, redirectEnabled, redirectUrl]);
+      })
+      .catch((e) => {
+        console.error(e);
+        setError(
+          `Error: To import redirects, you must copy the REDIRECTS environment variable value from your existing Netlify site.`
+        );
+      });
+  };
 
-  React.useEffect(() => {
-    const timeout = setTimeout(() => {
-      setPageVisible(true);
-    }, renderDelay);
-
-    return () => clearTimeout(timeout);
-  }, [renderDelay]);
-
-  if (!pageVisible) {
+  const redirectElements = redirects?.map((r, i, arr) => {
     return (
-      <div
-        className="App"
-        style={{ color: fgColor, backgroundColor: bgColor }}
-      />
-    );
-  } else {
-    return (
-      <div className="App" style={{ color: fgColor, backgroundColor: bgColor }}>
-        {!imgDisabled && (
-          <a href={redirectUrl} rel="noopener noreferrer">
-            <img
-              src={redirectImage}
-              alt="Arrow pointing to the right"
-              style={{ width: "calc(15vmin)" }}
+      <ListGroup.Item
+        key={`redirect-${i}`}
+        className="d-flex gap-4 justify-content-between align-items-center"
+      >
+        <code className="text-danger text-break">{r}</code>
+        <div className="d-flex gap-4">
+          <div className="d-flex gap-2">
+            <FaArrowUp
+              className={`cursor-pointer ${i === 0 ? "invisible" : ""}`}
+              onClick={() => handleMoveUp(i)}
             />
-          </a>
-        )}
-        {!messageDisabled && <p>{messageText}</p>}
-        {!linkDisabled && (
-          <a
-            href={redirectUrl}
-            rel="noopener noreferrer"
-            style={{ fontSize: "50%", color: "inherit" }}
-          >
-            {linkText}
-          </a>
-        )}
-        {!redirectUrl && (
-          <div style={{ marginTop: 20 }}>
-            Error: No redirect URL has been configured.
+            <FaArrowDown
+              className={`cursor-pointer ${
+                i >= arr.length - 1 ? "invisible" : ""
+              }`}
+              onClick={() => handleMoveDown(i)}
+            />
           </div>
-        )}
-      </div>
+          <FaTrashAlt
+            className="cursor-pointer"
+            onClick={() => handleDeleteRedirect(i)}
+          />
+        </div>
+      </ListGroup.Item>
     );
-  }
+  });
+
+  return (
+    <div className="App">
+      <Navbar bg="light" variant="light">
+        <Container>
+          <Navbar.Brand href="/">
+            <div className="d-flex gap-2 align-items-center">
+              <img
+                src={redirectImage}
+                alt="Arrow pointing to the right"
+                style={{ height: 30 }}
+              />
+              Netlify Redirector
+            </div>
+          </Navbar.Brand>
+          <Nav className="ms-auto d-flex align-items-center">
+            <Nav.Link href="https://github.com/justinmahar/netlify-redirector">
+              <FaGithub className="mb-1" />
+            </Nav.Link>
+            <Nav.Link href="https://github.com/justinmahar/netlify-redirector/stargazers">
+              Star It &rarr; <FaStar className="mb-1" />
+            </Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      <Container className="my-5">
+        <Row>
+          <Col md={{ offset: 2, span: 8 }}>
+            {!hideGreeting && (
+              <Alert
+                variant="primary"
+                dismissible
+                onClose={() => setHideGreeting(true)}
+              >
+                <p>
+                  Welcome to Netlify Redirector! Below you can set up the
+                  redirects for your Netlify deploy. Enjoy!
+                </p>
+                <p className="mb-0">
+                  {" "}
+                  If this project helps you, please{" "}
+                  <a
+                    href="https://github.com/justinmahar/netlify-redirector/stargazers"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Star it on GitHub
+                  </a>{" "}
+                  so others can find it. :)
+                </p>
+              </Alert>
+            )}
+            {error && (
+              <Alert variant="danger" dismissible onClose={() => setError("")}>
+                <p className="mb-0">{error}</p>
+              </Alert>
+            )}
+          </Col>
+        </Row>
+        <Row>
+          <Col md={{ offset: 2, span: 8 }}>
+            <div className="d-flex align-items-center justify-content-between gap-2">
+              <h3>Setup </h3>
+              {hideGreeting && (
+                <FaInfoCircle
+                  className="text-info cursor-pointer"
+                  onClick={() => setHideGreeting(false)}
+                />
+              )}
+            </div>
+            <div className="d-flex flex-column gap-3">
+              <div>
+                <Card>
+                  <Card.Header>
+                    <FaAsterisk className="mb-1" /> Create Redirects
+                  </Card.Header>
+                  <Card.Body className="d-flex flex-column gap-3">
+                    <div>
+                      <Card.Text className="mb-0">
+                        Add your redirects below:
+                      </Card.Text>
+                      <div className="d-flex flex-column gap-1">
+                        <ListGroup>{redirectElements}</ListGroup>
+                        <Form
+                          onSubmit={(e) => {
+                            e.preventDefault();
+                            handleAddRedirect();
+                          }}
+                        >
+                          <Form.Group
+                            controlId="new-redirect-id"
+                            className="d-flex gap-2"
+                          >
+                            <Form.Control
+                              ref={redirectFieldRef}
+                              type="text"
+                              placeholder="Enter redirect"
+                              value={enteredRedirect}
+                              onChange={(e) =>
+                                setEnteredRedirect(e.target.value)
+                              }
+                              onFocus={() => redirectFieldRef.current?.select()}
+                              className="font-monospace"
+                            />
+                            <Button
+                              type="submit"
+                              variant="primary"
+                              onClick={() => console.log("Add")}
+                            >
+                              <FaPlus className="mb-1" />
+                            </Button>
+                          </Form.Group>
+                          <Form.Text className="text-muted">
+                            Refer to the{" "}
+                            <a
+                              href="https://docs.netlify.com/routing/redirects/redirect-options/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Netlify redirect options
+                            </a>{" "}
+                            for how to configure redirects.
+                          </Form.Text>
+                        </Form>
+                      </div>
+                    </div>
+                    <Accordion>
+                      <Accordion.Item eventKey="0">
+                        <Accordion.Header>
+                          <div className="d-flex align-items-center gap-2">
+                            <FaQuestionCircle />
+                            Help & Examples{" "}
+                          </div>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          <p>
+                            Some common redirects from the{" "}
+                            <a
+                              href="https://docs.netlify.com/routing/redirects/redirect-options/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              documentation
+                            </a>
+                            :
+                          </p>
+                          <hr />
+                          <p>
+                            To redirect all traffic to new domain, use the
+                            following redirect:
+                          </p>
+                          <p>
+                            <code className="text-danger">
+                              {`/* https://example.com/:splat`}
+                            </code>
+                          </p>
+                          <p>
+                            This will redirect all paths to example.com, and is
+                            a common use case for Netlify Redirector.
+                          </p>
+                          <hr />
+                          <p>
+                            To redirect all traffic to a specific page, use the
+                            following redirect:
+                          </p>
+                          <p>
+                            <code className="text-danger">
+                              {`/* https://example.com/my/page`}
+                            </code>
+                          </p>
+                          <p>
+                            This will redirect all traffic to a specific page.
+                          </p>
+                          <hr />
+                          <p>
+                            An asterisk indicates a splat that will match
+                            anything that follows it. You can use the splat in
+                            your rewrites or redirects like this:
+                          </p>
+                          <p>
+                            <code className="text-danger">
+                              {`/news/* https://example.com/blog/:splat`}
+                            </code>
+                          </p>
+                          <p>
+                            This would redirect paths like
+                            /news/2004/01/10/my-story to
+                            https://example.com/blog/2004/01/10/my-story.
+                          </p>
+                          <hr />
+                          <p>
+                            If you'd like to still be able to view this setup
+                            page, add this as your first redirect:
+                          </p>
+                          <p>
+                            <code className="text-danger">
+                              {`/netlify-redirector /index.html 200`}
+                            </code>
+                          </p>
+                          <p>
+                            Netlify Director setup will then be available at the
+                            path{" "}
+                            <code className="text-danger">
+                              {`/netlify-redirector`}
+                            </code>
+                          </p>
+                        </Accordion.Body>
+                      </Accordion.Item>
+                    </Accordion>
+                  </Card.Body>
+                </Card>
+              </div>
+              <div>
+                <Card>
+                  <Card.Header>
+                    <FaSave className="mb-1" /> Save Redirects to Netlify
+                  </Card.Header>
+                  <Card.Body className="d-flex flex-column gap-2">
+                    <Card.Text className="mb-0">
+                      When finished, open the{" "}
+                      <a
+                        href="https://netlify.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Netlify
+                      </a>{" "}
+                      site, open Site configuration{" "}
+                      <FaAngleRight style={{ marginBottom: 2 }} /> Environment
+                      variables, set the environment variable{" "}
+                      <code className="text-danger">REDIRECTS</code> to the
+                      following value, and trigger a deploy:
+                    </Card.Text>
+                    <Form.Control
+                      ref={redirectsTextAreaRef}
+                      as="textarea"
+                      rows={3}
+                      value={JSON.stringify(redirects)}
+                      className="font-monospace"
+                      onFocus={() => redirectsTextAreaRef.current?.select()}
+                    />
+                    <div className="d-flex gap-1">
+                      <Button variant="primary" onClick={handleCopy}>
+                        {copied ? (
+                          "Copied!"
+                        ) : (
+                          <>
+                            <FaCopy className="mb-1" /> Copy
+                          </>
+                        )}
+                      </Button>
+                      <Button
+                        variant="outline-secondary"
+                        onClick={handleImport}
+                      >
+                        {imported ? "Imported!" : "Import From Clipboard"}
+                      </Button>
+                    </div>
+                    <Card.Text>
+                      After your deploy has finished, your redirects will be
+                      active.
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
 };

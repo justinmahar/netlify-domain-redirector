@@ -1,11 +1,11 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { Redirector } from "./Redirector";
+import { RedirectorSetup } from "./Redirector";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="*" element={<Redirector />} />
+        <Route path="*" element={<RedirectorSetup />} />
       </Routes>
     </Router>
   );
