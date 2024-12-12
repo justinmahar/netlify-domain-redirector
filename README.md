@@ -17,17 +17,23 @@
 
 ## Overview
 
-This simple app allows you to easily redirect domain traffic using server-side Netlify redirects.
+This project allows you to easily redirect domain traffic using server-side Netlify redirects.
 
 The main use case for this project is changing the domain of a website. You can set up Netlify Domain Redirector to 
-send all traffic from the old domain to your new domain.
+send all traffic from the old domain to your new domain, while preserving all links.
 
-It's quick, easy, and it's highly configurable. Just follow the steps below.
+You can also use this project to send all traffic from a domain (or subdomain) to a single page, either permanently or temporarily.
+
+It's quick, easy to use, and it's highly configurable. Just follow the steps below.
 
 ### Features include:
 
 - **⚡️ Quick & Easy Setup**
-  - Deploy to Netlify with a few clicks, follow the setup, and you're good to go.
+  - Deploy to Netlify with a few clicks, follow the setup page, and you're good to go.
+- **🆓 Free Tier**
+  - Netlify offers a generous free tier, so this solution is likely free for smaller sites.
+- **🔗 Link Are Preserved**
+  - Easily use splats to ensure all links to your old domain are preserved.
 - **🤖 Great For SEO**
   - All redirects are handled server-side via Netlify and can be set up the right way, so your SEO doesn't suffer.
 - **⚙️ Highly Configurable**
