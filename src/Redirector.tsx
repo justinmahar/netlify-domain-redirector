@@ -169,15 +169,13 @@ export const RedirectorSetup = () => {
               href="https://github.com/justinmahar/netlify-domain-redirector"
               target="_blank"
               rel="noopener noreferrer"
+              className="d-flex gap-2 align-items-center"
             >
-              <FaGithub className="mb-1" />
-            </Nav.Link>
-            <Nav.Link
-              href="https://github.com/justinmahar/netlify-domain-redirector/stargazers"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Star It &rarr; <FaStar className="mb-1" />
+              Love it? Star it! &rarr;
+              <img
+                src="https://img.shields.io/github/stars/justinmahar/netlify-domain-redirector?style=social"
+                alt="GitHub Repo stars"
+              />
             </Nav.Link>
           </Nav>
         </Container>
@@ -197,7 +195,7 @@ export const RedirectorSetup = () => {
                   {" "}
                   If you find this project helpful, please{" "}
                   <a
-                    href="https://github.com/justinmahar/netlify-domain-redirector/stargazers"
+                    href="https://github.com/justinmahar/netlify-domain-redirector"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
