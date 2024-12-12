@@ -1,8 +1,40 @@
 {
   "name": "netlify-domain-redirector",
-  "description": "Easily redirect domain traffic via Netlify",
   "version": "2.0.5",
-  "private": false,
+  "author": "Justin Mahar <contact@justinmahar.com>",
+  "description": "Easily redirect domain traffic via Netlify",
+  "homepage": "https://github.com/justinmahar/netlify-redirector/",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && npm run create-redirects",
+    "create-redirects": "node create-redirects.js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "preship": "npm run build && git diff-index HEAD && npm version patch -m \"Build, version, and publish.\"",
+    "ship": "npm publish --access public",
+    "postship": "git push"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinmahar/netlify-redirector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/justinmahar/netlify-redirector/issues"
+  },
+  "keywords": [
+    "netlify",
+    "redirect",
+    "redirects",
+    "domain",
+    "traffic",
+    "seo",
+    "redirector",
+    "301 redirect",
+    "302 redirect",
+    "permanent",
+    "temporary"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -27,16 +59,6 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && npm run create-redirects",
-    "create-redirects": "node create-redirects.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "preship": "npm run build && git diff-index HEAD && npm version patch -m \"Build, version, and publish.\"",
-    "ship": "npm publish --access public",
-    "postship": "git push"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -54,18 +76,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "keywords": [
-    "netlify",
-    "redirect",
-    "redirects",
-    "domain",
-    "traffic",
-    "seo",
-    "redirector",
-    "301 redirect",
-    "302 redirect",
-    "permanent",
-    "temporary"
-  ]
+  }
 }
