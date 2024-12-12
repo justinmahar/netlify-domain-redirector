@@ -10,13 +10,13 @@ It's quick, easy, and painless. It's also highly configurable. Just follow the s
 
 ## Demo
 
-The following instance of Netlify Redirector will redirect to the link: `https://github.com/justinmahar/netlify-redirector`
+The following instance of Netlify Redirector will redirect to `https://github.com/`, and will preserve paths.
 
 [netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector](https://netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/fcf3fe57-4573-4503-8def-b52b97453fb7/deploy-status)](https://app.netlify.com/sites/netlify-redirector-demo/deploys)
 
-If the redirect is successful, you will be sent to the project repo. This deploy uses all default options.
+If the redirect is successful, you will be sent to the project repo. This deploy uses all default options, with the preserve path setting switched on.
 
 ## Setup
 
