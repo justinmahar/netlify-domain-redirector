@@ -19,12 +19,19 @@
 
 This is a simple React app that allows you to set up redirects for a configured domain via Netlify redirects.
 
+A common use case for this project is changing the domain of a website. You can set up Netlify Redirector to 
+send all traffic to your new domain, then assign the old domain to Netlify Redirector.
+
 It's quick, easy, and painless. Just follow the steps below.
 
 ### Features include:
 
 - **⚡️ Quick & Easy Setup**
-  - Deploy to Netlify with a few clicks, follow the setup, and you're good to go!
+  - Deploy to Netlify with a few clicks, follow the setup, and you're good to go.
+- **🤖 Server-Side Redirects, Great For SEO**
+  - All redirects are handled server-side via Netlify, and can be done "the right way" so your SEO doesn't suffer.
+- **⚙️ Highly Configurable**
+  - Set up 301s, 302s, and beyond—add all the complexity you'd like!
 
 ## Donate 
 
@@ -41,18 +48,20 @@ If this project helped you, please consider buying me a coffee or sponsoring me.
 - [Demo](#demo)
 - [Setup](#setup)
   - [1. Deploy To Netlify](#1-deploy-to-netlify)
-  - [2. Open The Site](#2-open-the-site)
+  - [2. Open The Site \& Configure Redirects](#2-open-the-site--configure-redirects)
+  - [3. Save Redirects In Netlify](#3-save-redirects-in-netlify)
+  - [4. Add Domain To Site](#4-add-domain-to-site)
 - [Contributing](#contributing)
 - [⭐ Found It Helpful? Star It!](#-found-it-helpful-star-it)
 - [License](#license)
 
 ## Demo
 
-The following instance of Netlify Redirector will redirect to `https://github.com/`, and will preserve paths.
+The following instance of Netlify Redirector will redirect all traffic to `https://github.com/`.
 
 [netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector](https://netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector)
 
-If the redirect is successful, you will be sent to the project repo.
+If the redirect is successful, the path will be preserved and you will be sent to the Netlify Redirector project repo. 👍
 
 ## Setup
 
@@ -68,9 +77,19 @@ Alternatively, you can clone a copy of this repo and deploy the repo manually:
   <img src="https://img.shields.io/badge/GitHub-Use%20this%20template-brightgreen"/>
 </a>
 
-### 2. Open The Site
+### 2. Open The Site & Configure Redirects
 
-Open the site and follow the instructions.
+Open the site and follow the instructions to configure your redirects.
+
+### 3. Save Redirects In Netlify
+
+Copy the value from the setup page and save as the environment variable REDIRECTS for your site in Netlify. Then trigger a deploy.
+
+Your redirects are now active!
+
+### 4. Add Domain To Site
+
+You can now add your old domain to the deployed Netlify Redirector site via Netlify.
 
 ## Contributing
 
