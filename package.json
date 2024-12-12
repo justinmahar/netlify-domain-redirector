@@ -1,8 +1,8 @@
 {
   "name": "netlify-redirector",
   "description": "Easily redirect domain traffic via Netlify",
-  "version": "2.0.1",
-  "private": true,
+  "version": "2.0.0",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
