@@ -2,7 +2,7 @@
   <img src="https://github.com/justinmahar/netlify-domain-redirector/raw/master/public/logo192.png" width="100" />
 </div>
 <h2 align="center">
-  ↪️ Netlify Redirector
+  Netlify Redirector
 </h2>
 <h3 align="center">
   Easily redirect domain traffic via Netlify.
