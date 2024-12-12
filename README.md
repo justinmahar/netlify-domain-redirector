@@ -46,18 +46,18 @@ If you'd like to preserve paths so that links to the old domain still work with 
 
 See the additional options you can configure [below](#options). 
 
-### 3. Verify Redirect Works
+### 3. Confirm Redirection Is Active
 
 Once the deploy finishes, your redirect will be active.
 
-Visit the Netlify site to confirm the redirect is working as expected.
+Visit the Netlify site to confirm the redirect is working as expected. If not, see the troubleshooting guide below.
 
 From here, you can configure the deploy to use your origin domain through Netlify. [Read the instructions on how to set that up here.](https://docs.netlify.com/domains-https/custom-domains/)
 
 ## Tips
 
 - **Be sure to redeploy.** You must redeploy your site after the environment variable has been configured.
-- **Redirects are fast.** There is a 3-second delay before the React app (screenshot above) is rendered. The redirect will likely happen so quickly that you will not see it.
+- **Redirects are fast.** There is a 3-second delay before the React app is rendered. The redirect will likely happen so quickly that you will not see it.
 - **You can reuse the same repo.** You can deploy the same repo as many times as you'd like in Netlify, each with different configured redirect URLs. You don't need a new repo for every redirected domain.
 - **You can preserve links if you want.** Set `REACT_APP_PRESERVE_PATH` to `true` if you want links to the old domain to still work.
 - **More options below!** Change the colors, text, render delay, and more. See below for all the config options.
