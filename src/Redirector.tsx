@@ -342,6 +342,7 @@ export const RedirectorSetup = () => {
                         as="textarea"
                         rows={3}
                         value={JSON.stringify(redirects)}
+                        readOnly
                         className="font-monospace"
                         onFocus={() => redirectsTextAreaRef.current?.select()}
                       />

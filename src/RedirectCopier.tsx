@@ -22,6 +22,7 @@ export const RedirectCopier = ({ redirect, ...props }: RedirectCopierProps) => {
         <Form.Control
           type="text"
           value={redirect}
+          readOnly
           className="font-monospace text-primary"
           style={{ background: "#FAFAFF" }}
         />
