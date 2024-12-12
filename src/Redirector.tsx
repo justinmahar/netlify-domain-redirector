@@ -317,7 +317,8 @@ export const RedirectorSetup = () => {
                             </code>
                           </p>
                           <p>
-                            This will redirect all traffic to a specific page.
+                            This will redirect all traffic to the page
+                            https://example.com/my/page.
                           </p>
                           <hr />
                           <p>
