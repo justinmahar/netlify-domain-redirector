@@ -74,7 +74,7 @@ The following instance of Netlify Domain Redirector will redirect all traffic to
 
 Click the link below to see redirects in action:
 
-[https://netlify-domain-redirector-demo.netlify.app/justinmahar](https://netlify-domain-redirector-demo.netlify.app/justinmahar)
+[https://redirect-to-github.netlify.app/justinmahar](https://redirect-to-github.netlify.app/justinmahar)
 
 When clicking this link, the path `/justinmahar` is preserved and you will be redirected to the same path on GitHub.
 
