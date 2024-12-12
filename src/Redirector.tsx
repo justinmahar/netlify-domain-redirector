@@ -161,7 +161,7 @@ export const RedirectorSetup = () => {
                 alt="Arrow pointing to the right"
                 style={{ height: 30 }}
               />
-              Netlify Redirector
+              Netlify Domain Redirector
             </div>
           </Navbar.Brand>
           <Nav className="ms-auto d-flex align-items-center">
@@ -191,7 +191,7 @@ export const RedirectorSetup = () => {
                 dismissible
                 onClose={() => setHideGreeting(true)}
               >
-                <h3>Welcome to Netlify Redirector!</h3>
+                <h3>Welcome to Netlify Domain Redirector!</h3>
                 <p>Below you can set up the redirects for your Netlify site.</p>
                 <p className="mb-0">
                   {" "}
@@ -325,7 +325,7 @@ export const RedirectorSetup = () => {
                         >
                           Netlify
                         </a>{" "}
-                        and open your Netlify Redirector site.
+                        and open your Netlify Domain Redirector site.
                       </li>
                       <li>
                         Open Site configuration{" "}

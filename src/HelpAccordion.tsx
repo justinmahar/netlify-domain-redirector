@@ -72,7 +72,7 @@ export const HelpAccordion = ({ ...props }: HelpAccordionProps) => {
                 <RedirectCopier redirect={allTrafficRedirect} />
                 <p className="mb-0">
                   This will force redirect all paths to {domainName}, and is a
-                  common use case for Netlify Redirector.
+                  common use case for Netlify Domain Redirector.
                 </p>
               </Card.Body>
             </Card>

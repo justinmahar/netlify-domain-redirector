@@ -2,7 +2,7 @@
   <img src="https://github.com/justinmahar/netlify-domain-redirector/raw/master/public/logo192.png" width="100" />
 </div>
 <h2 align="center">
-  Netlify Redirector
+  Netlify Domain Redirector
 </h2>
 <h3 align="center">
   Easily redirect domain traffic via Netlify.
@@ -19,7 +19,7 @@
 
 This simple app allows you to easily redirect domain traffic using server-side Netlify redirects.
 
-The main use case for this project is changing the domain of a website. You can set up Netlify Redirector to 
+The main use case for this project is changing the domain of a website. You can set up Netlify Domain Redirector to 
 send all traffic from the old domain to your new domain.
 
 It's quick, easy, and it's highly configurable. Just follow the steps below.
@@ -62,13 +62,13 @@ If this project helped you, please consider buying me a coffee or sponsoring me.
 
 ### Redirect Demo
 
-The following instance of Netlify Redirector will redirect all traffic to `https://github.com/`. 
+The following instance of Netlify Domain Redirector will redirect all traffic to `https://github.com/`. 
 
 Click the link below to see redirects in action:
 
 [https://netlify-domain-redirector-demo.netlify.app/justinmahar/netlify-domain-redirector](https://netlify-domain-redirector-demo.netlify.app/justinmahar/netlify-domain-redirector)
 
-When clicking this link, the path is preserved and you will be redirected to the same path on GitHub, which is to the Netlify Redirector project repo.
+When clicking this link, the path is preserved and you will be redirected to the same path on GitHub, which is to the Netlify Domain Redirector project repo.
 
 Try changing the path to your own GitHub path if you'd like to try it out.
 
@@ -76,7 +76,7 @@ Try changing the path to your own GitHub path if you'd like to try it out.
 
 ### Setup Page Demo
 
-The following setup page will be visible when you first deploy Netlify Redirector:
+The following setup page will be visible when you first deploy Netlify Domain Redirector:
 
 - [View Default Setup Page](https://netlify-domain-redirector.netlify.app/)
 
@@ -86,7 +86,7 @@ Once you set up your redirects properly, this page will no longer appear.
 
 ### 1. Deploy To Netlify
 
-First, click this button to start a new deploy of Netlify Redirector:
+First, click this button to start a new deploy of Netlify Domain Redirector:
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/justinmahar/netlify-domain-redirector)
 
@@ -118,7 +118,7 @@ Your redirects are now active! Confirm the redirects are working as expected.
 
 ### 4. Add Domain To Site
 
-You can now add your old domain to the deployed Netlify Redirector site via Netlify.
+You can now add your old domain to the deployed Netlify Domain Redirector site via Netlify.
 
 If you've used the splat example shown above, all traffic to the old domain will now redirect to the new one.
 
@@ -126,7 +126,7 @@ If you've used the splat example shown above, all traffic to the old domain will
 
 This project uses [Netlify _redirects](https://docs.netlify.com/routing/redirects/) to configure redirects. This is a plain text file that is written to the root directory of the deployed site.
 
-Of course, you can use this file in your own Netlify project if you have one already. But in some cases, you just want to redirect all traffic from one domain to another one while preserving links, which is where Netlify Redirector comes in. You do not need to change any files in the repo, `_redirects` configuration is done entirely via an environment variable.
+Of course, you can use this file in your own Netlify project if you have one already. But in some cases, you just want to redirect all traffic from one domain to another one while preserving links, which is where Netlify Domain Redirector comes in. You do not need to change any files in the repo, `_redirects` configuration is done entirely via an environment variable.
 
 During the build process, if the `REDIRECTS` environment variable is present for your site, the `_redirects` file is created with the items specified in that variable via a Node.js script. These values are logged during the build process if you'd like to see what's actually being written to this file for your deploy. Just review the Netlify build logs to see them.
 
