@@ -20,7 +20,7 @@
 This project allows you to easily redirect domain traffic using server-side Netlify redirects.
 
 The main use case for this project is changing the domain of a website. You can set up Netlify Domain Redirector to 
-send all traffic from the old domain to your new domain, while preserving all links.
+redirect all traffic from the old domain to your new domain, while preserving all links.
 
 You can also use this project to send all traffic from a domain (or subdomain) to a single page, either permanently or temporarily.
 
@@ -32,7 +32,7 @@ It's quick, easy to use, and it's highly configurable. Just follow the steps bel
   - Deploy to Netlify with a few clicks, follow the setup page, and you're good to go.
 - **🆓 Free**
   - Netlify offers generous [free tier](https://www.netlify.com/pricing/) bandwidth, so this solution is likely free for most sites.
-- **🔗 Link Are Preserved**
+- **🔗 Links Are Preserved**
   - Easily use splats to ensure all links to your old domain are preserved.
 - **🤖 Great For SEO**
   - All redirects are handled server-side via Netlify and can be set up the right way, so your SEO doesn't suffer.
@@ -60,7 +60,7 @@ If this project helped you, please consider buying me a coffee or sponsoring me.
   - [3. Save Redirects In Netlify](#3-save-redirects-in-netlify)
   - [4. Add Domain To Site](#4-add-domain-to-site)
 - [How It Works](#how-it-works)
-- [Limitations \& Cost Estimate](#limitations--cost-estimate)
+- [Limitations \& Cost Estimates](#limitations--cost-estimates)
 - [Contributing](#contributing)
 - [Disclaimer](#disclaimer)
 - [⭐ Found It Helpful? Star It!](#-found-it-helpful-star-it)
@@ -98,7 +98,7 @@ The steps are as summarized as follows:
 2. Visit the site to configure your redirects
 3. Set an environment variable in Netlify to your redirect config
 4. Trigger a deploy and confirm your redirects are working
-5. Assign the old domain to the site in Netlify. All done!
+5. Assign the old domain to the site in Netlify. You're all done!
 
 ### 1. Deploy To Netlify
 
@@ -146,7 +146,7 @@ Of course, you can use this file in your own Netlify project if you have one alr
 
 During the build process, if the `REDIRECTS` environment variable is present for your site, the `_redirects` file is created with the items specified in that variable via a Node.js script. The `REDIRECTS` value itself is a JSON array of redirect strings. These values are logged during the build process if you'd like to see what's actually being written to this file for your deploy. Just review the Netlify build logs to see them.
 
-The build also generates a small React app, which contains the [setup page](https://netlify-domain-redirector.netlify.app/). This has instructions and a simple UI that makes it easy to create the redirects config for your site.
+The build also generates a small React app that contains the [setup page](https://netlify-domain-redirector.netlify.app/). This has instructions and a simple UI that makes it easy to create the redirects config for your site.
 
 The React app is not meant for the public, it's just there for setup purposes, so it's recommended you force redirect your traffic with the bang `!` operator, like so:
 
@@ -156,11 +156,11 @@ The React app is not meant for the public, it's just there for setup purposes, s
 
 If no `REDIRECTS` environment variable is set for your site, a default `_redirects` file is used, which redirects all traffic to `/index.html` using the redirect `/* /index.html 200`. This causes the setup page to be shown when no redirects have been configured.
 
-## Limitations & Cost Estimate
+## Limitations & Cost Estimates
 
 Netlify's [free tier](https://www.netlify.com/pricing/) covers 100GB of bandwidth, which accounts for a significant amount of redirect traffic.
 
-A redirect response contains a small header and a location URL. If, on average, a redirect response consumes roughly 500 bytes of bandwidth, then:
+A redirect response contains a small header and a location URL. If, on average, a redirect response consumes roughly 500 bytes of data, then:
 
 ```
 100GB = 100 * 1024^3 bytes = 107,374,182,400 bytes
