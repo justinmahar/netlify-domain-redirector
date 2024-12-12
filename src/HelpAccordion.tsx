@@ -1,10 +1,6 @@
 import classNames from "classnames";
 import { Accordion, AccordionProps, Alert, Card, Form } from "react-bootstrap";
-import {
-  FaExclamationCircle,
-  FaExclamationTriangle,
-  FaQuestionCircle,
-} from "react-icons/fa";
+import { FaExclamationTriangle, FaQuestionCircle } from "react-icons/fa";
 import { useLocalStorage } from "react-storage-complete";
 import { RedirectCopier } from "./RedirectCopier";
 
