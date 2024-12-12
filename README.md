@@ -136,7 +136,7 @@ This project uses [Netlify _redirects](https://docs.netlify.com/routing/redirect
 
 Of course, you can use this file in your own Netlify project if you have one already. But in some cases, you just want to redirect all traffic from one domain to another one while preserving links, which is where Netlify Domain Redirector comes in. You do not need to change any files in the repo, `_redirects` configuration is done entirely via an environment variable.
 
-During the build process, if the `REDIRECTS` environment variable is present for your site, the `_redirects` file is created with the items specified in that variable via a Node.js script. These values are logged during the build process if you'd like to see what's actually being written to this file for your deploy. Just review the Netlify build logs to see them.
+During the build process, if the `REDIRECTS` environment variable is present for your site, the `_redirects` file is created with the items specified in that variable via a Node.js script. The `REDIRECTS` value itself is a JSON array of redirect strings. These values are logged during the build process if you'd like to see what's actually being written to this file for your deploy. Just review the Netlify build logs to see them.
 
 The build also generates a small React app, which contains the [setup page](https://netlify-domain-redirector.netlify.app/). This has instructions and a simple UI that makes it easy to create the redirects config for your site.
 
