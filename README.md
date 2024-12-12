@@ -37,7 +37,7 @@ It's quick, easy to use, and it's highly configurable. Just follow the steps bel
 - **🤖 Great For SEO**
   - All redirects are handled server-side via Netlify and can be set up the right way, so your SEO doesn't suffer.
 - **⚙️ Highly Configurable**
-  - Set up 301/302 redirects, path splats, and beyond—add all the complexity you'd like!
+  - Set up 301/302 redirects, path splats, and beyond—add all the complexity your heart desires!
 
 ## Donate 
 
