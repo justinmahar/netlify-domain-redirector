@@ -63,7 +63,9 @@ Click the link below to see redirects in action:
 
 [https://netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector](https://netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector)
 
-If the redirect is successful, the path is preserved and you will redirected to the Netlify Redirector project repo. 👍 Try changing the path to your own GitHub if you'd like.
+If the redirect is successful, the path is preserved and you will be redirected to the Netlify Redirector project repo. 👍
+
+Try changing the path to your own GitHub if you'd like to try it out.
 
 ## Setup
 
