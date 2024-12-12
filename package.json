@@ -32,7 +32,10 @@
     "build": "react-scripts build && npm run create-redirects",
     "create-redirects": "node create-redirects.js",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "preship": "npm run build && git diff-index HEAD && npm version patch -m \"Build, version, and publish.\"",
+    "ship": "npm publish --access public",
+    "postship": "git push"
   },
   "eslintConfig": {
     "extends": [
