@@ -46,6 +46,8 @@ If this project helped you, please consider buying me a coffee or sponsoring me.
 - [Donate](#donate)
 - [Table of Contents](#table-of-contents)
 - [Demo](#demo)
+  - [Redirect Demo](#redirect-demo)
+  - [Setup Page Demo](#setup-page-demo)
 - [Setup](#setup)
   - [1. Deploy To Netlify](#1-deploy-to-netlify)
   - [2. Open The Site \& Configure Redirects](#2-open-the-site--configure-redirects)
@@ -56,6 +58,8 @@ If this project helped you, please consider buying me a coffee or sponsoring me.
 - [License](#license)
 
 ## Demo
+
+### Redirect Demo
 
 The following instance of Netlify Redirector will redirect all traffic to `https://github.com/`. 
 
@@ -68,6 +72,12 @@ If the redirect is successful, the path is preserved and you will be redirected 
 Try changing the path to your own GitHub if you'd like to try it out.
 
 > Note: The redirect being used by this deploy is: `/* https://github.com/:splat 301!`
+
+### Setup Page Demo
+
+The following setup page will be visible when you first deploy Netlify Redirector:
+
+- [View Default Setup Page](https://netlify-redirector.netlify.app/)
 
 ## Setup
 
