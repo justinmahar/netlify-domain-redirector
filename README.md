@@ -8,6 +8,9 @@
   Easily redirect domain traffic via Netlify.
 </h3>
 <p align="center">
+  <a href="https://github.com/justinmahar/netlify-redirector/fork">
+    <img src="https://img.shields.io/badge/GitHub-Fork%20this%20repo-brightgreen"/>
+  </a>
   <a href="https://app.netlify.com/sites/netlify-redirector-demo/deploys" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/fcf3fe57-4573-4503-8def-b52b97453fb7/deploy-status" alt="Netlify Status" /></a>
 </p>
 <p align="center">
