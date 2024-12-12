@@ -80,7 +80,7 @@ The following setup page will be visible when you first deploy Netlify Redirecto
 
 - [View Default Setup Page](https://netlify-redirector.netlify.app/)
 
-Once you set up your redirects, this page will no longer appear.
+Once you set up your redirects properly, this page will no longer appear.
 
 ## Setup
 
