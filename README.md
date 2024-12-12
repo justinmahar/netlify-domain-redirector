@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/justinmahar/netlify-redirector/raw/master/public/logo512.png" width="100" />
+  <img src="https://github.com/justinmahar/netlify-redirector/raw/master/public/logo192.png" width="100" />
 </div>
 <h2 align="center">
   ↪️ Netlify Redirector
