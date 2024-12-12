@@ -146,8 +146,8 @@ export const RedirectorSetup = () => {
   });
 
   return (
-    <div className="App">
-      <Navbar bg="light" variant="light">
+    <div className="App pt-5">
+      <Navbar bg="light" variant="light" className="shadow-sm fixed-top">
         <Container>
           <Navbar.Brand href="/">
             <div className="d-flex gap-2 align-items-center">
