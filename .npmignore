@@ -4,6 +4,7 @@
 .storybook
 node_modules
 build
+public
 src
 storybook-static
 # Files
@@ -22,4 +23,5 @@ lockblocks.yml
 MAINTENANCE.md
 package-lock.json
 tsconfig.json
+create-redirects.js
 # [/lock:core] ---------------------------------------🚫
