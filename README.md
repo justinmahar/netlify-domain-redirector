@@ -119,4 +119,4 @@ If you found this project helpful, let the community know by giving it a [star](
 
 ## License
 
-See [LICENSE.md](https://justinmahar.github.io/netlify-redirector/?path=/docs/license--docs).
+See [LICENSE.md](https://github.com/justinmahar/netlify-redirector/blob/master/LICENSE.md).
