@@ -71,6 +71,8 @@ The app uses 2 techniques to redirect the user's browser to your target.
 1. `meta refresh`: The oldest trick in the book still works. The app uses a `<meta>` refresh tag to redirect the browser. [More info here.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#refresh)
 2. `window.open`: The app will use window.open with a target of `_self` immediately after rendering has completed. [More info here.](https://developer.mozilla.org/en-US/docs/Web/API/Window/open)
 
+If, after 3 seconds, neither of these work, a simple page is displayed with a link to redirect. In most cases, this page will never be seen.
+
 ## Options
 
 You can set the following environment variables strings to modify the behavior and appearance of this application.
