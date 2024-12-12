@@ -12,7 +12,7 @@ It's quick, easy, and painless. It's also highly configurable. Just follow the s
 
 The following instance of Netlify Redirector will redirect to the link: `https://github.com/justinmahar/netlify-redirector`
 
-[netlify-redirector-demo.netlify.app](https://netlify-redirector-demo.netlify.app/)
+[netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector](https://netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/fcf3fe57-4573-4503-8def-b52b97453fb7/deploy-status)](https://app.netlify.com/sites/netlify-redirector-demo/deploys)
 
@@ -56,7 +56,7 @@ From here, you can configure the deploy to use your origin domain through Netlif
 
 ## Tips
 
-- **Be sure to redeploy.** You must redeploy your site after the environment variable has been configured.
+- **Be sure to redeploy.** You must redeploy your site after setting the environment variables.
 - **Redirects are fast.** There is a 3-second delay before the React app is rendered. The redirect will likely happen so quickly that you will not see it.
 - **You can reuse the same repo.** You can deploy the same repo as many times as you'd like in Netlify, each with different configured redirect URLs. You don't need a new repo for every redirected domain.
 - **You can preserve links if you want.** Set `REACT_APP_PRESERVE_PATH` to `true` if you want links to the old domain to still work.
