@@ -119,7 +119,7 @@ export const Redirector = () => {
             {linkText}
           </a>
         )}
-        {redirectUrl && (
+        {!redirectUrl && (
           <div style={{ marginTop: 20 }}>
             Error: No redirect URL has been configured.
           </div>
