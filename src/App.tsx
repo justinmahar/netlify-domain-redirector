@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { RedirectorSetup } from "./Redirector";
+import { RedirectorSetup } from "./components/Redirector";
 
 const App = () => {
   return (

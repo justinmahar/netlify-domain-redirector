@@ -8,8 +8,6 @@ import {
   Container,
   Form,
   ListGroup,
-  Nav,
-  Navbar,
   Row,
 } from "react-bootstrap";
 import {
@@ -23,14 +21,15 @@ import {
   FaSave,
   FaTrashAlt,
 } from "react-icons/fa";
-import "./App.css";
-import redirectImage from "./redirect.webp";
+import "../App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import copy from "copy-to-clipboard";
 import { useLocalStorage } from "react-storage-complete";
 import { useMomentaryBool } from "react-use-precision-timer";
+import { Header } from "./Header";
 import { HelpAccordion } from "./HelpAccordion";
+import classNames from "classnames";
 
 export const RedirectorSetup = () => {
   const [hideGreeting, setHideGreeting] = useLocalStorage<boolean>(
@@ -116,6 +115,8 @@ export const RedirectorSetup = () => {
       });
   };
 
+  const redirectsCount = (redirects ?? []).length;
+
   const redirectElements = (redirects ?? []).map((r, i, arr) => {
     return (
       <ListGroup.Item
@@ -124,60 +125,48 @@ export const RedirectorSetup = () => {
         style={{ background: "#FAFAFF" }}
       >
         <code className="text-primary text-break">{r}</code>
-        <div className="d-flex gap-4">
-          <div className="d-flex gap-2">
-            <FaArrowUp
-              className={`cursor-pointer ${i === 0 ? "invisible" : ""}`}
-              onClick={() => handleMoveUp(i)}
-            />
-            <FaArrowDown
-              className={`cursor-pointer ${
-                i >= arr.length - 1 ? "invisible" : ""
-              }`}
-              onClick={() => handleMoveDown(i)}
+        <div className="d-flex gap-2">
+          {redirectsCount > 1 && (
+            <div className="d-flex gap-2 border-start ps-2">
+              <FaArrowUp
+                className={classNames(i > 0 && "cursor-pointer")}
+                style={{ opacity: i === 0 ? 0.3 : 1 }}
+                onClick={() => {
+                  if (i > 0) {
+                    handleMoveUp(i);
+                  }
+                }}
+              />
+              <FaArrowDown
+                className={classNames(i < arr.length - 1 && "cursor-pointer")}
+                style={{ opacity: i >= arr.length - 1 ? 0.3 : 1 }}
+                onClick={() => {
+                  if (i < arr.length - 1) {
+                    handleMoveDown(i);
+                  }
+                }}
+              />
+            </div>
+          )}
+          <div
+            className={classNames(
+              "d-flex gap-2 ps-2",
+              redirectsCount > 1 && "border-start"
+            )}
+          >
+            <FaTrashAlt
+              className="cursor-pointer"
+              onClick={() => handleDeleteRedirect(i)}
             />
           </div>
-          <FaTrashAlt
-            className="cursor-pointer"
-            onClick={() => handleDeleteRedirect(i)}
-          />
         </div>
       </ListGroup.Item>
     );
   });
 
-  const redirectsCount = (redirects ?? []).length;
-
   return (
     <div className="App pt-5">
-      <Navbar bg="light" variant="light" className="shadow-sm fixed-top">
-        <Container>
-          <Navbar.Brand href="/">
-            <div className="d-flex gap-2 align-items-center">
-              <img
-                src={redirectImage}
-                alt="Arrow pointing to the right"
-                style={{ height: 30 }}
-              />
-              Netlify Domain Redirector
-            </div>
-          </Navbar.Brand>
-          <Nav className="ms-auto d-flex align-items-center">
-            <Nav.Link
-              href="https://github.com/justinmahar/netlify-domain-redirector"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="d-flex gap-2 align-items-center"
-            >
-              Love it? Star it! &rarr;
-              <img
-                src="https://img.shields.io/github/stars/justinmahar/netlify-domain-redirector?style=social"
-                alt="GitHub Repo stars"
-              />
-            </Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
+      <Header />
       <Container className="my-5">
         <Row>
           <Col md={{ offset: 2, span: 8 }}>
