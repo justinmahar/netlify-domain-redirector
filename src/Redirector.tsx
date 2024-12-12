@@ -118,7 +118,7 @@ export const RedirectorSetup = () => {
       });
   };
 
-  const redirectElements = redirects?.map((r, i, arr) => {
+  const redirectElements = (redirects ?? []).map((r, i, arr) => {
     return (
       <ListGroup.Item
         key={`redirect-${i}`}
@@ -224,11 +224,25 @@ export const RedirectorSetup = () => {
                   </Card.Header>
                   <Card.Body className="d-flex flex-column gap-3">
                     <div>
-                      <Card.Text className="mb-0">
-                        Add your redirects below:
-                      </Card.Text>
-                      <div className="d-flex flex-column gap-1">
-                        <ListGroup>{redirectElements}</ListGroup>
+                      <div className="d-flex flex-column gap-2">
+                        <Card>
+                          <Card.Header>Your Redirects</Card.Header>
+                          <Card.Body className="p-0">
+                            <ListGroup
+                              style={{
+                                borderStartStartRadius: 0,
+                                borderStartEndRadius: 0,
+                              }}
+                            >
+                              {redirectElements.length === 0 && (
+                                <ListGroup.Item className="fst-italic small">
+                                  Add a redirect below.
+                                </ListGroup.Item>
+                              )}
+                              {redirectElements}
+                            </ListGroup>
+                          </Card.Body>
+                        </Card>
                         <Form
                           onSubmit={(e) => {
                             e.preventDefault();
@@ -252,7 +266,9 @@ export const RedirectorSetup = () => {
                             />
                             <Button
                               type="submit"
-                              variant="primary"
+                              variant={
+                                enteredRedirect ? "primary" : "outline-primary"
+                              }
                               onClick={() => console.log("Add")}
                             >
                               <FaPlus className="mb-1" />
