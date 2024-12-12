@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/justinmahar/netlify-redirector/raw/master/public/logo192.png" width="100" />
+  <img src="https://github.com/justinmahar/netlify-domain-redirector/raw/master/public/logo192.png" width="100" />
 </div>
 <h2 align="center">
   ↪️ Netlify Redirector
@@ -8,7 +8,7 @@
   Easily redirect domain traffic via Netlify.
 </h3>
 <p align="center">
-  <a href="https://badge.fury.io/js/netlify-domain-redirector" target="_blank" rel="noopener noreferrer"><img src="https://badge.fury.io/js/netlify-domain-redirector.svg" alt="npm Version" /></a> <a href="https://github.com/justinmahar/netlify-redirector/fork"><img src="https://img.shields.io/badge/GitHub-Fork%20this%20repo-brightgreen"/></a> <a href="https://app.netlify.com/sites/netlify-redirector-demo/deploys" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/fcf3fe57-4573-4503-8def-b52b97453fb7/deploy-status" alt="Netlify Status" /></a>
+  <a href="https://badge.fury.io/js/netlify-domain-redirector" target="_blank" rel="noopener noreferrer"><img src="https://badge.fury.io/js/netlify-domain-redirector.svg" alt="npm Version" /></a> <a href="https://github.com/justinmahar/netlify-domain-redirector/fork"><img src="https://img.shields.io/badge/GitHub-Fork%20this%20repo-brightgreen"/></a> <a href="https://app.netlify.com/sites/netlify-domain-redirector-demo/deploys" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/fcf3fe57-4573-4503-8def-b52b97453fb7/deploy-status" alt="Netlify Status" /></a>
 </p>
 <p align="center">
   <a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
@@ -66,7 +66,7 @@ The following instance of Netlify Redirector will redirect all traffic to `https
 
 Click the link below to see redirects in action:
 
-[https://netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector](https://netlify-redirector-demo.netlify.app/justinmahar/netlify-redirector)
+[https://netlify-domain-redirector-demo.netlify.app/justinmahar/netlify-domain-redirector](https://netlify-domain-redirector-demo.netlify.app/justinmahar/netlify-domain-redirector)
 
 When clicking this link, the path is preserved and you will be redirected to the same path on GitHub, which is to the Netlify Redirector project repo.
 
@@ -78,7 +78,7 @@ Try changing the path to your own GitHub path if you'd like to try it out.
 
 The following setup page will be visible when you first deploy Netlify Redirector:
 
-- [View Default Setup Page](https://netlify-redirector.netlify.app/)
+- [View Default Setup Page](https://netlify-domain-redirector.netlify.app/)
 
 Once you set up your redirects properly, this page will no longer appear.
 
@@ -88,11 +88,11 @@ Once you set up your redirects properly, this page will no longer appear.
 
 First, click this button to start a new deploy of Netlify Redirector:
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/justinmahar/netlify-redirector)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/justinmahar/netlify-domain-redirector)
 
 Alternatively, you can fork the repo and deploy manually:
 
-<a href="https://github.com/justinmahar/netlify-redirector/fork">
+<a href="https://github.com/justinmahar/netlify-domain-redirector/fork">
   <img src="https://img.shields.io/badge/GitHub-Fork%20this%20repo-brightgreen"/>
 </a>
 
@@ -130,7 +130,7 @@ Of course, you can use this file in your own Netlify project if you have one alr
 
 During the build process, if the `REDIRECTS` environment variable is present for your site, the `_redirects` file is created with the items specified in that variable via a Node.js script. These values are logged during the build process if you'd like to see what's actually being written to this file for your deploy. Just review the Netlify build logs to see them.
 
-The build also generates a small React app, which contains the [setup page](https://netlify-redirector.netlify.app/). This has instructions and a simple UI that makes it easy to create the redirects config for your site.
+The build also generates a small React app, which contains the [setup page](https://netlify-domain-redirector.netlify.app/). This has instructions and a simple UI that makes it easy to create the redirects config for your site.
 
 The React app is not meant for the public, it's just there for setup purposes, so it's recommended you force redirect your traffic with the bang `!` operator, like so:
 
@@ -148,10 +148,10 @@ Feel free to submit a pull request for bugs or additions, and make sure to updat
 
 For major changes, open an issue first to discuss what you'd like to change.
 
-## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/netlify-redirector/stargazers)
+## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/netlify-domain-redirector/stargazers)
 
-If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/netlify-redirector/stargazers): [👉⭐](https://github.com/justinmahar/netlify-redirector/stargazers)
+If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/netlify-domain-redirector/stargazers): [👉⭐](https://github.com/justinmahar/netlify-domain-redirector/stargazers)
 
 ## License
 
-See [LICENSE.md](https://github.com/justinmahar/netlify-redirector/blob/master/LICENSE.md).
+See [LICENSE.md](https://github.com/justinmahar/netlify-domain-redirector/blob/master/LICENSE.md).

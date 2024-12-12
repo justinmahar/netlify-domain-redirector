@@ -3,7 +3,7 @@
   "version": "2.0.7",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "Easily redirect domain traffic via Netlify",
-  "homepage": "https://github.com/justinmahar/netlify-redirector/",
+  "homepage": "https://github.com/justinmahar/netlify-domain-redirector/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && npm run create-redirects",
@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justinmahar/netlify-redirector.git"
+    "url": "git+https://github.com/justinmahar/netlify-domain-redirector.git"
   },
   "bugs": {
-    "url": "https://github.com/justinmahar/netlify-redirector/issues"
+    "url": "https://github.com/justinmahar/netlify-domain-redirector/issues"
   },
   "keywords": [
     "netlify",

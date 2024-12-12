@@ -166,10 +166,10 @@ export const RedirectorSetup = () => {
             </div>
           </Navbar.Brand>
           <Nav className="ms-auto d-flex align-items-center">
-            <Nav.Link href="https://github.com/justinmahar/netlify-redirector">
+            <Nav.Link href="https://github.com/justinmahar/netlify-domain-redirector">
               <FaGithub className="mb-1" />
             </Nav.Link>
-            <Nav.Link href="https://github.com/justinmahar/netlify-redirector/stargazers">
+            <Nav.Link href="https://github.com/justinmahar/netlify-domain-redirector/stargazers">
               Star It &rarr; <FaStar className="mb-1" />
             </Nav.Link>
           </Nav>
@@ -190,7 +190,7 @@ export const RedirectorSetup = () => {
                   {" "}
                   If you find this project helpful, please{" "}
                   <a
-                    href="https://github.com/justinmahar/netlify-redirector/stargazers"
+                    href="https://github.com/justinmahar/netlify-domain-redirector/stargazers"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
