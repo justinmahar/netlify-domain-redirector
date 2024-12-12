@@ -67,6 +67,8 @@ If the redirect is successful, the path is preserved and you will be redirected 
 
 Try changing the path to your own GitHub if you'd like to try it out.
 
+> Note: The redirect being used by this deploy is: `/* https://github.com/:splat 301!`
+
 ## Setup
 
 ### 1. Deploy To Netlify
