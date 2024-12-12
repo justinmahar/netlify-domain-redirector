@@ -117,15 +117,15 @@ You can change `example.com` to your own domain to achieve the same behavior.
 
 ### 3. Save Redirects In Netlify
 
-Copy the value from the setup page and save as the environment variable `REDIRECTS` for your site in Netlify via the site settings.
+Copy the value from the setup page, open your site in Netlify › Site configuration › Environment variables, and add the environment variable `REDIRECTS` using the copied value.
 
-Then trigger a deploy.
+Then open Deploys and trigger a deploy.
 
 Your redirects are now active! Confirm the redirects are working as expected.
 
 ### 4. Add Domain To Site
 
-You can now add your old domain to the deployed Netlify Domain Redirector site via Netlify.
+You can now add your old domain to the deployed Netlify Domain Redirector site via Netlify Domain management.
 
 If you've used the splat example shown above, all traffic to the old domain will now redirect to the new one.
 
