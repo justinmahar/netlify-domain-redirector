@@ -92,6 +92,14 @@ Once you set up your redirects properly, this page will no longer appear.
 
 ## Setup
 
+The steps are as summarized as follows:
+
+1. Deploy this project to Netlify
+2. Visit the site to configure your redirects
+3. Set an environment variable in Netlify to your redirect config
+4. Trigger a deploy and confirm your redirects are working
+5. Assign the old domain to the site in Netlify. All done!
+
 ### 1. Deploy To Netlify
 
 First, click this button to start a new deploy of Netlify Domain Redirector:
