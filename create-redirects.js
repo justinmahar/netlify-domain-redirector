@@ -5,19 +5,28 @@ dotenv.config();
 
 const redirectsEnvVarName = "REDIRECTS";
 let redirects = undefined;
+const redirectsEnvVar = process.env[redirectsEnvVarName];
 try {
-  const val = JSON.parse(process.env[redirectsEnvVarName]);
-  if (Array.isArray(val)) {
-    redirects = val;
+  const parsedRedirects = JSON.parse(redirectsEnvVar);
+  // Confirm it's an array of strings
+  if (
+    Array.isArray(parsedRedirects) &&
+    typeof parsedRedirects.find((v) => typeof v !== "string") === "undefined"
+  ) {
+    redirects = parsedRedirects;
   } else {
-    console.error("REDIRECTS must be a JSON array of strings.");
+    console.error(
+      `${redirectsEnvVarName} must be a JSON array of redirect strings. Received instead: ${redirectsEnvVar}`
+    );
   }
 } catch (e) {
   console.error(e);
+  console.error(
+    `${redirectsEnvVarName} must be a JSON array of redirect strings. Received instead: ${redirectsEnvVar}`
+  );
 }
 
-let redirectsContent = "/* /index.html 200";
-
+let redirectsContent = "/* /index.html 200"; // Show setup page if no redirects are set
 if (redirects) {
   redirectsContent = redirects.join("\n");
 }
