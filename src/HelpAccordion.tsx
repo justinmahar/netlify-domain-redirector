@@ -66,8 +66,8 @@ export const HelpAccordion = ({ ...props }: HelpAccordionProps) => {
               <Card.Header>Redirect all traffic to another domain</Card.Header>
               <Card.Body className="d-flex flex-column gap-2">
                 <p className="mb-0">
-                  To permanently redirect all traffic to another domain, use the
-                  following redirect:
+                  To permanently redirect all traffic to another domain while
+                  preserving links, use the following redirect:
                 </p>
                 <RedirectCopier redirect={allTrafficRedirect} />
                 <p className="mb-0">
