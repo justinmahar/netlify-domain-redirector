@@ -56,6 +56,7 @@ If this project helped you, please consider buying me a coffee or sponsoring me.
 - [How It Works](#how-it-works)
 - [Contributing](#contributing)
 - [⭐ Found It Helpful? Star It!](#-found-it-helpful-star-it)
+- [Disclaimer](#disclaimer)
 - [License](#license)
 
 ## Demo
@@ -151,6 +152,10 @@ For major changes, open an issue first to discuss what you'd like to change.
 ## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/netlify-domain-redirector/stargazers)
 
 If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/netlify-domain-redirector/stargazers): [👉⭐](https://github.com/justinmahar/netlify-domain-redirector/stargazers)
+
+## Disclaimer
+
+This project is not affiliated with [Netlify, Inc](https://netlify.com/) in any way. It is an unofficial solution made for/by the development community.
 
 ## License
 
