@@ -93,7 +93,7 @@ Once you set up your redirects properly, this page will no longer appear.
 
 ## Setup
 
-The steps are as summarized as follows:
+Summary of steps:
 
 1. Deploy this project to Netlify
 2. Visit the site to configure your redirects
