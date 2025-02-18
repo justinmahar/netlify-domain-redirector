@@ -11,7 +11,7 @@
   <a href="https://badge.fury.io/js/netlify-domain-redirector" target="_blank" rel="noopener noreferrer"><img src="https://badge.fury.io/js/netlify-domain-redirector.svg" alt="npm Version" /></a> <a href="https://github.com/justinmahar/netlify-domain-redirector/fork"><img src="https://img.shields.io/badge/GitHub-Fork%20this%20repo-brightgreen"/></a> <a href="https://app.netlify.com/sites/netlify-domain-redirector-demo/deploys" target="_blank" rel="noopener noreferrer"><img src="https://api.netlify.com/api/v1/badges/fcf3fe57-4573-4503-8def-b52b97453fb7/deploy-status" alt="Netlify Status" /></a>
 </p>
 <p align="center">
-  <a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
+  <a href="https://paypal.me/thejustinmahar/5"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
 </p>
 
 
@@ -41,9 +41,9 @@ It's quick, easy to use, and it's highly configurable. Just follow the steps bel
 
 ## Donate 
 
-If this project helped you, please consider buying me a coffee or sponsoring me. Your support is much appreciated!
+If this project helped save you time, please consider buying me a coffee, which powers my development (and life). Your support is much appreciated!
 
-<a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
+<a href="https://github.com/sponsors/justinmahar"><img src="https://justinmahar.github.io/react-kindling/support/sponsor.png" alt="Sponsor via GitHub" height="35" /></a>&nbsp; <a href="https://paypal.me/thejustinmahar/5"><img src="https://justinmahar.github.io/react-kindling/support/coffee-1.png" alt="Buy me a coffee" height="35" /></a>&nbsp; <a href="https://paypal.me/thejustinmahar/15"><img src="https://justinmahar.github.io/react-kindling/support/coffee-3.png" alt="Buy me 3 coffees" height="35" /></a>&nbsp; <a href="https://paypal.me/thejustinmahar/25"><img src="https://justinmahar.github.io/react-kindling/support/coffee-5.png" alt="Buy me 5 coffees" height="35" /></a>
 
 ## Table of Contents 
 
@@ -191,6 +191,10 @@ Be sure to read the project license for additional terms and conditions.
 ## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/netlify-domain-redirector/stargazers)
 
 If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/netlify-domain-redirector/stargazers): [👉⭐](https://github.com/justinmahar/netlify-domain-redirector/stargazers)
+
+Want to support the project? Feel free to grab me a coffee, which is my main source of fuel for development:
+
+<a href="https://paypal.me/thejustinmahar/5"><img src="https://justinmahar.github.io/react-kindling/support/coffee-1.png" alt="Buy me a coffee" height="35" /></a>&nbsp; <a href="https://paypal.me/thejustinmahar/15"><img src="https://justinmahar.github.io/react-kindling/support/coffee-3.png" alt="Buy me 3 coffees" height="35" /></a>&nbsp; <a href="https://paypal.me/thejustinmahar/25"><img src="https://justinmahar.github.io/react-kindling/support/coffee-5.png" alt="Buy me 5 coffees" height="35" /></a>
 
 ## License
 
